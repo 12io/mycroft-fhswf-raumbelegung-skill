@@ -1,0 +1,3324 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!DOCTYPE vpis-response [
+<!ELEMENT vpis-response (semesterjahr,query,suitabilities,staffs,locations,activities)>
+
+<!ELEMENT semesterjahr (#PCDATA) >
+<!ELEMENT query (#PCDATA) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT hostkey (#PCDATA) >
+<!ATTLIST hostkey
+  semesterjahr CDATA #IMPLIED
+>
+<!ELEMENT name (#PCDATA) >
+
+<!ELEMENT staffs (staff)* >
+<!ELEMENT staff (name) >
+<!ATTLIST staff
+  surname CDATA #REQUIRED
+  forename CDATA #REQUIRED
+  title1 CDATA #IMPLIED
+  title2 CDATA #IMPLIED
+>
+
+<!ELEMENT locations (location)* >
+<!ELEMENT location (name,hostkey,description,location-suitabilities) >
+<!ATTLIST location
+  size CDATA #REQUIRED
+  sizeklausur CDATA #IMPLIED
+>
+<!ELEMENT location-suitabilities (location-suitability)* >
+<!ELEMENT location-suitability (#PCDATA) >
+<!ATTLIST location-suitability
+  semesterjahr CDATA #REQUIRED
+  primary      CDATA #IMPLIED
+  secondary    CDATA #IMPLIED
+>
+
+<!ELEMENT suitabilities (suitability)* >
+<!ELEMENT suitability (name,hostkey,description) >
+
+<!ELEMENT activities (activity)* >
+<!ELEMENT activity (name,hostkey,activity-type,description,activity-dates,activity-locations,activity-staffs,activity-student-sets) >
+<!ATTLIST activity
+  lastchange CDATA #IMPLIED
+>
+<!ELEMENT activity-dates (activity-date)* >
+<!ELEMENT activity-date (#PCDATA) >
+<!ATTLIST activity-date
+  date CDATA #REQUIRED
+  begin CDATA #IMPLIED
+  end CDATA #IMPLIED
+>
+<!ELEMENT activity-type (#PCDATA) >
+<!ATTLIST activity-type
+  short CDATA #IMPLIED
+>
+<!ELEMENT activity-locations (activity-location)* >
+<!ELEMENT activity-location (#PCDATA) >
+<!ELEMENT activity-staffs (activity-staff)* >
+<!ELEMENT activity-staff (#PCDATA) >
+<!ELEMENT activity-student-sets (activity-student-set)* >
+<!ELEMENT activity-student-set (#PCDATA) >
+
+
+<!ENTITY Auml "&#196;" >
+<!ENTITY Ouml "&#214;" >
+<!ENTITY Uuml "&#220;" >
+<!ENTITY auml "&#228;" >
+<!ENTITY ouml "&#246;" >
+<!ENTITY uuml "&#252;" >
+<!ENTITY szlig "&#223;" >
+<!ENTITY eacute "&#233;" >
+]>
+
+<!--Template veranstaltungen.2009-01.tpl.xml -->
+<vpis-response>
+ <semesterjahr>SS2021</semesterjahr>
+ <query>Raum:Uebersicht:Iserlohn:2021-04-30</query>
+
+ <suitabilities>
+  <suitability>
+   <name>R#Is Tutorien</name>
+   <hostkey semesterjahr="SS2021">#SPLUS105BC3</hostkey>
+   <description></description>
+  </suitability>
+  <suitability>
+   <name>R#Iserlohn VS VAI</name>
+   <hostkey semesterjahr="SS2021">#SPLUS5B7EDC</hostkey>
+   <description></description>
+  </suitability>
+  <suitability>
+   <name>R#Is PC-Pools</name>
+   <hostkey semesterjahr="SS2021">#SPLUS5F1FDA</hostkey>
+   <description></description>
+  </suitability>
+  <suitability>
+   <name>R#Is PC-Pools 2,4,14</name>
+   <hostkey semesterjahr="SS2021">#SPLUS815ABD</hostkey>
+   <description></description>
+  </suitability>
+  <suitability>
+   <name>R#Is</name>
+   <hostkey semesterjahr="SS2021">#SPLUS9E087E</hostkey>
+   <description></description>
+  </suitability>
+  <suitability>
+   <name>R#Is mit Beamer</name>
+   <hostkey semesterjahr="SS2021">#SPLUSC166B0</hostkey>
+   <description>R&auml;ume mit Beamer</description>
+  </suitability>
+  <suitability>
+   <name>R#Is mit Whiteboard</name>
+   <hostkey semesterjahr="SS2021">#SPLUSC166B1</hostkey>
+   <description>R&auml;ume mit Whiteboard</description>
+  </suitability>
+  <suitability>
+   <name>R#Is mit Mikrofon</name>
+   <hostkey semesterjahr="SS2021">#SPLUS24E446</hostkey>
+   <description>R&auml;ume mit Mikrofon</description>
+  </suitability>
+  <suitability>
+   <name>R#Is Vorlesungsr&auml;ume</name>
+   <hostkey semesterjahr="SS2021">#SPLUS5F1FD1</hostkey>
+   <description></description>
+  </suitability>
+  <suitability>
+   <name>R#Is Vorl. (gro&szlig;)</name>
+   <hostkey semesterjahr="SS2021">#SPLUSB0205E</hostkey>
+   <description></description>
+  </suitability>
+  <suitability>
+   <name>R#Is mit Tafel</name>
+   <hostkey semesterjahr="SS2021">#SPLUSC166B2</hostkey>
+   <description>R&auml;ume mit Kreidetafel</description>
+  </suitability>
+  <suitability>
+   <name>R#Is Vorl. (klein)</name>
+   <hostkey semesterjahr="SS2021">#SPLUSD2E253</hostkey>
+   <description></description>
+  </suitability>
+  <suitability>
+   <name>R#Is Laboratorien FB I+N</name>
+   <hostkey semesterjahr="SS2021">#SPLUSC166AE</hostkey>
+   <description>Laboratorien des Fachbereichs Informatik und Naturwissenschaften</description>
+  </suitability>
+  <suitability>
+   <name>R#Is PC-Pool 8,9,12</name>
+   <hostkey semesterjahr="SS2021">#SPLUSC46FE6</hostkey>
+   <description></description>
+  </suitability>
+  <suitability>
+   <name>R#Is AI Poolr&auml;ume FB I+N</name>
+   <hostkey semesterjahr="SS2021">#SPLUS25B42B</hostkey>
+   <description>Poolr&auml;ume des Fachbereichs Informatik und Naturwissenschaften</description>
+  </suitability>
+ </suitabilities>
+ <staffs>
+<staff><name>#SPLUS8D4852</name></staff>
+  <staff surname="Borchert" forename="Thomas" title1="Dr." title2="Prof.">
+   <name>Borchert</name>
+  </staff>
+  <staff surname="Buschmann" forename="Ralf" title1="Dipl.-Ing." title2="">
+   <name>Buschmann</name>
+  </staff>
+  <staff surname="Cordes" forename="Susanne" title1="Dr.-Ing." title2="Prof.">
+   <name>Cordes, Su.</name>
+  </staff>
+  <staff surname="Dahmen" forename="Claudio" title1="Dr." title2="Prof.">
+   <name>Dahmen</name>
+  </staff>
+  <staff surname="Dr&ouml;lle" forename="Oliver" title1="Dipl.-Ing." title2="">
+   <name>Dr&ouml;lle</name>
+  </staff>
+  <staff surname="Ellermeyer" forename="Tobias" title1="Dr.-Ing." title2="Prof.">
+   <name>Ellermeyer</name>
+  </staff>
+  <staff surname="Faulstich" forename=" Matthias" title1=" Dipl. Ing." title2="">
+   <name>Faulstich</name>
+  </staff>
+  <staff surname="Feser" forename=" Ralf" title1=" Dr.-Ing." title2=" Prof.">
+   <name>Feser</name>
+  </staff>
+  <staff surname="Frieling" forename="Melanie" title1="Dipl.-Ing.M" title2="">
+   <name>Frieling</name>
+  </staff>
+  <staff surname="Gawron" forename="Christian" title1="Dr." title2="Prof.">
+   <name>Gawron, C.</name>
+  </staff>
+  <staff surname="Gerhardt" forename=" J&uuml;rgen" title1=" Dr. rer. pol." title2=" Prof.">
+   <name>Gerhardt</name>
+  </staff>
+  <staff surname="Gerles" forename="Ren&eacute;" title1="B.Sc." title2="">
+   <name>Gerles, R.</name>
+  </staff>
+  <staff surname="Gie&szlig;" forename="Michael" title1="Dr." title2="">
+   <name>Gie&szlig;</name>
+  </staff>
+  <staff surname="Gogolin" forename="Uwe" title1="Dipl.-Inform. (FH)" title2="">
+   <name>Gogolin</name>
+  </staff>
+  <staff surname="Hannibal" forename="Wilhelm" title1="Prof. Dr.-Ing." title2="">
+   <name>Hannibal</name>
+  </staff>
+  <staff surname="Holke" forename="Tobias" title1="M.Sc." title2="">
+   <name>Holke, T.</name>
+  </staff>
+  <staff surname="H&uuml;hne" forename="Rylee" title1="Dr." title2="Prof.">
+   <name>H&uuml;hne</name>
+  </staff>
+  <staff surname="Lenninghaus" forename="Nina" title1="" title2="">
+   <name>Lenninghaus</name>
+  </staff>
+  <staff surname="Meisterjahn" forename=" Peter" title1=" Dr. rer. nat." title2=" Prof.">
+   <name>Meisterjahn</name>
+  </staff>
+  <staff surname="Menze" forename="Wolfgang" title1="" title2="">
+   <name>Menze</name>
+  </staff>
+  <staff surname="M&uuml;tterlein" forename=" Bernward" title1=" Dr.-Ing." title2=" Prof.">
+   <name>M&uuml;tterlein</name>
+  </staff>
+  <staff surname="Nawrath" forename="Niklas" title1="M.Sc." title2="">
+   <name>Nawrath, N.</name>
+  </staff>
+  <staff surname="Otto" forename="Robin" title1="M.Eng." title2="">
+   <name>Otto</name>
+  </staff>
+  <staff surname="Perlick" forename="Olaf" title1="Dipl.Inform." title2="">
+   <name>Perlick, O.</name>
+  </staff>
+  <staff surname="Rapp" forename="Sebastian" title1="B.Sc." title2="">
+   <name>Rapp, S.</name>
+  </staff>
+  <staff surname="Roloff" forename=" Christian" title1=" Dipl.-Ing." title2="">
+   <name>Roloff</name>
+  </staff>
+  <staff surname="R&uuml;bsam" forename="Michael" title1="Dr." title2="Prof.">
+   <name>R&uuml;bsam</name>
+  </staff>
+  <staff surname="Schmidt" forename="Sebastian" title1="B.Sc." title2="">
+   <name>Schmidt, S.2</name>
+  </staff>
+  <staff surname="Schulte" forename="Moritz" title1="M.Sc." title2="">
+   <name>Schulte, Mo.</name>
+  </staff>
+  <staff surname="Sch&uuml;tte" forename="Sebastian" title1="M.Eng." title2="">
+   <name>Sch&uuml;tte, S.</name>
+  </staff>
+  <staff surname="Skambraks" forename="Martin" title1="Dr.-Ing." title2="Prof.">
+   <name>Skambraks</name>
+  </staff>
+  <staff surname="Tigges" forename="J&ouml;rg" title1="B.Eng." title2="">
+   <name>Tigges</name>
+  </staff>
+  <staff surname="Ujma" forename="Andreas" title1="Dr.-Ing." title2="Prof.">
+   <name>Ujma</name>
+  </staff>
+  <staff surname="vom Orde" forename="Philipp" title1="M.Sc." title2="">
+   <name>vom Orde, P.</name>
+  </staff>
+ </staffs>
+
+ <locations>
+  <location size="30" sizeklausur="12">
+   <name>Is-A.EG06</name>
+   <hostkey semesterjahr="SS2021">#SPLUS7101D1</hostkey>
+   <description>H&ouml;rsaal mit 30 Pl&auml;tzen</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSD2E253</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="17" sizeklausur="0">
+   <name>Is-A.EG11</name>
+   <hostkey semesterjahr="SS2021">#SPLUS3F5E8E</hostkey>
+   <description>PC-Poolraum</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="16" sizeklausur="0">
+   <name>Is-A.UG-Halle-1</name>
+   <hostkey semesterjahr="SS2021">#SPLUS3F5E90</hostkey>
+   <description>Labor Nevoigt</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="16" sizeklausur="0">
+   <name>Is-A.UG-Halle-2</name>
+   <hostkey semesterjahr="SS2021">#SPLUS3F5E91</hostkey>
+   <description>Labor Hannibal</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="16" sizeklausur="0">
+   <name>Is-A.UG-Halle-3</name>
+   <hostkey semesterjahr="SS2021">#SPLUS3F5E92</hostkey>
+   <description>Getriebetechnik Sch&ouml;ler</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="16" sizeklausur="0">
+   <name>Is-A.UG04</name>
+   <hostkey semesterjahr="SS2021">#SPLUS3F5E8F</hostkey>
+   <description>Leistungspr&uuml;fstand 2</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="16" sizeklausur="0">
+   <name>Is-A.UG08</name>
+   <hostkey semesterjahr="SS2021">#SPLUS3F5E93</hostkey>
+   <description>Allradpr&uuml;fstand</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="378" sizeklausur="101">
+   <name>Is-Audimax</name>
+   <hostkey semesterjahr="SS2021">#LOCISAMX000</hostkey>
+   <description>Dr.-Ing. Jochen F. Kirchhoff-H&ouml;rsaal</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS24E446</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSB0205E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="0">
+   <name>Is-C102</name>
+   <hostkey semesterjahr="SS2021">#SPLUSCD2392</hostkey>
+   <description></description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="0">
+   <name>Is-C103</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC5F</hostkey>
+   <description></description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="5" sizeklausur="0">
+   <name>Is-C203</name>
+   <hostkey semesterjahr="SS2021">#LOCISC02030</hostkey>
+   <description>B&uuml;ro Prof. Fobbe</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="14" sizeklausur="0">
+   <name>Is-C204</name>
+   <hostkey semesterjahr="SS2021">#LOCISC02040</hostkey>
+   <description>Organische Chemie</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="14" sizeklausur="0">
+   <name>Is-C206</name>
+   <hostkey semesterjahr="SS2021">#LOCISC02060</hostkey>
+   <description>Physikalische Chemie</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="5" sizeklausur="0">
+   <name>Is-C207</name>
+   <hostkey semesterjahr="SS2021">#LOCISC02070</hostkey>
+   <description>B&uuml;ro Roloff</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="115" sizeklausur="16">
+   <name>Is-C301</name>
+   <hostkey semesterjahr="SS2021">#LOCISC03010</hostkey>
+   <description>H&ouml;rsaal  C-Geb&auml;ude 115 Pl&auml;tze</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS24E446</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSB0205E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="12" sizeklausur="0">
+   <name>Is-C304</name>
+   <hostkey semesterjahr="SS2021">#LOCISC03040</hostkey>
+   <description>D&uuml;nnschichtlabor ; Organische Chemie</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="5" sizeklausur="0">
+   <name>Is-C305</name>
+   <hostkey semesterjahr="SS2021">#LOCISC03050</hostkey>
+   <description>B&uuml;ro Rudolf</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="12" sizeklausur="0">
+   <name>Is-C307</name>
+   <hostkey semesterjahr="SS2021">#LOCISC03070</hostkey>
+   <description>Lacklabor; Organische Schichten</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="10" sizeklausur="0">
+   <name>Is-C308</name>
+   <hostkey semesterjahr="SS2021">#LOCISC03080</hostkey>
+   <description>Ex Bio</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="10" sizeklausur="0">
+   <name>Is-C309</name>
+   <hostkey semesterjahr="SS2021">#LOCISC03090</hostkey>
+   <description>Labor f&uuml;r Chemische Nanotechnologie</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="10" sizeklausur="0">
+   <name>Is-C310</name>
+   <hostkey semesterjahr="SS2021">#LOCISC03100</hostkey>
+   <description>Labor f&uuml;r Nanotechnologie</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="5" sizeklausur="0">
+   <name>Is-C311</name>
+   <hostkey semesterjahr="SS2021">#LOCISC03110</hostkey>
+   <description>Chemisches Mess- und Pr&uuml;flabor 1</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="5" sizeklausur="0">
+   <name>Is-C312</name>
+   <hostkey semesterjahr="SS2021">#LOCISC03120</hostkey>
+   <description>Chemisches Mess- und Pr&uuml;flabor 2</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="10" sizeklausur="0">
+   <name>Is-H101</name>
+   <hostkey semesterjahr="SS2021">#LOCISH01010</hostkey>
+   <description>Besprechungsraum per Tel. 111 buchen</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS23F7AB</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="1">
+   <name>Is-H103</name>
+   <hostkey semesterjahr="SS2021">#SPLUS8835BF</hostkey>
+   <description>Prof. Fiolka</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="0">
+   <name>Is-H104</name>
+   <hostkey semesterjahr="SS2021">#SPLUS8835C0</hostkey>
+   <description>Prof. Gruber</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="0">
+   <name>Is-H105</name>
+   <hostkey semesterjahr="SS2021">#SPLUS8835C6</hostkey>
+   <description>Dekanat M</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="0">
+   <name>Is-H106</name>
+   <hostkey semesterjahr="SS2021">#LOCISH01060</hostkey>
+   <description>Sekretariat Dekanat M &amp; I+N</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="0">
+   <name>Is-H107</name>
+   <hostkey semesterjahr="SS2021">#LOCISH01070</hostkey>
+   <description>Dekanat I+N; Erlemann</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="0">
+   <name>Is-H108</name>
+   <hostkey semesterjahr="SS2021">#SPLUS24E457</hostkey>
+   <description>Sekretariat Vomhof</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="0">
+   <name>Is-H109</name>
+   <hostkey semesterjahr="SS2021">#SPLUS8835C1</hostkey>
+   <description>B&uuml;ro</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="0">
+   <name>Is-H110</name>
+   <hostkey semesterjahr="SS2021">#SPLUS8835C3</hostkey>
+   <description>B&uuml;ro Drees</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="12" sizeklausur="0">
+   <name>Is-H112</name>
+   <hostkey semesterjahr="SS2021">#SPLUSCB1824</hostkey>
+   <description>PPS - ERP Labor</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="4" sizeklausur="0">
+   <name>Is-H113</name>
+   <hostkey semesterjahr="SS2021">#LOCISH01130</hostkey>
+   <description>Studierenden-Serviceb&uuml;ro; Blanck, Khongklad, Obst, Przibylla</description>
+   <location-suitabilities>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="0">
+   <name>Is-H115</name>
+   <hostkey semesterjahr="SS2021">#SPLUS8835C5</hostkey>
+   <description>B&uuml;ro Grote</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="0">
+   <name>Is-H119</name>
+   <hostkey semesterjahr="SS2021">#SPLUS8835C4</hostkey>
+   <description>B&uuml;ro Witt</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="4">
+   <name>Is-H201</name>
+   <hostkey semesterjahr="SS2021">#SPLUSFA1DA6</hostkey>
+   <description>Digitaltechnik-Labor</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="48" sizeklausur="14">
+   <name>Is-H205</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC42</hostkey>
+   <description>H&ouml;rsaal mit Beamer 48 Pl&auml;tze</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSD2E253</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="24" sizeklausur="14">
+   <name>Is-H206</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC41</hostkey>
+   <description>H&ouml;rsaal mit Beamer 24 Pl&auml;tze</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSD2E253</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="10" sizeklausur="0">
+   <name>Is-H208</name>
+   <hostkey semesterjahr="SS2021">#SPLUSE0B62B</hostkey>
+   <description>Labor f&uuml;r Biotechnologie</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="10" sizeklausur="0">
+   <name>Is-H209</name>
+   <hostkey semesterjahr="SS2021">#SPLUS24E44A</hostkey>
+   <description>Labor f&uuml;r Biotechnologie / Zellbiologie</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="10" sizeklausur="0">
+   <name>Is-H210</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC4C</hostkey>
+   <description>Labor f&uuml;r Biotechnologie</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H210a</name>
+   <hostkey semesterjahr="SS2021">#SPLUS8835C8</hostkey>
+   <description>B&uuml;ro Kumpf</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H211</name>
+   <hostkey semesterjahr="SS2021">#SPLUSC4C9CC</hostkey>
+   <description>B&uuml;ro Prof. Eisenbarth</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="48" sizeklausur="13">
+   <name>Is-H212</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC40</hostkey>
+   <description>H&ouml;rsaal mit Beamer 48 Pl&auml;tze</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSD2E253</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="48" sizeklausur="13">
+   <name>Is-H213</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC3F</hostkey>
+   <description>H&ouml;rsaal 48 Pl&auml;tze;</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSD2E253</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="10" sizeklausur="0">
+   <name>Is-H214</name>
+   <hostkey semesterjahr="SS2021">#SPLUS215B15</hostkey>
+   <description>B&uuml;ro Gawron</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="7">
+   <name>Is-H301</name>
+   <hostkey semesterjahr="SS2021">#SPLUS644E6E</hostkey>
+   <description>Labor f&uuml;r Mechatronik II</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="2" sizeklausur="0">
+   <name>Is-H302</name>
+   <hostkey semesterjahr="SS2021">#SPLUS24E44B</hostkey>
+   <description>B&uuml;ro Lenhoff</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="2" sizeklausur="0">
+   <name>Is-H303</name>
+   <hostkey semesterjahr="SS2021">#LOCISH03030</hostkey>
+   <description>B&uuml;ro Menze, Schulte, Pabst</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="12" sizeklausur="0">
+   <name>Is-H304</name>
+   <hostkey semesterjahr="SS2021">#LOCISH03040</hostkey>
+   <description>Labor f&uuml;r Werkstofftechnik</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H305</name>
+   <hostkey semesterjahr="SS2021">#LOCISH03050</hostkey>
+   <description>B&uuml;ro Prof. N. Rauch</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="18" sizeklausur="0">
+   <name>Is-H306</name>
+   <hostkey semesterjahr="SS2021">#SPLUS178C87</hostkey>
+   <description>Labor f&uuml;r Mechatronik III</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="0">
+   <name>Is-H307</name>
+   <hostkey semesterjahr="SS2021">#SPLUS7265BD</hostkey>
+   <description>B&uuml;ro Prof. F. M&uuml;ller</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="2">
+   <name>Is-H308</name>
+   <hostkey semesterjahr="SS2021">#SPLUS24E449</hostkey>
+   <description>B&uuml;ro Prof.</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="49" sizeklausur="14">
+   <name>Is-H309</name>
+   <hostkey semesterjahr="SS2021">#LOCISH03090</hostkey>
+   <description>H&ouml;rsaal 49 Pl&auml;tze</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5B7EDC</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSD2E253</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="1">
+   <name>Is-H310</name>
+   <hostkey semesterjahr="SS2021">#SPLUSBE278B</hostkey>
+   <description>B&uuml;ro Prof. Ellermeyer</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="30" sizeklausur="0">
+   <name>Is-H311</name>
+   <hostkey semesterjahr="SS2021">#LOCISH03110</hostkey>
+   <description>Labor Mechatronik IV</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H312</name>
+   <hostkey semesterjahr="SS2021">#LOCISH03120</hostkey>
+   <description>B&uuml;ro Thume</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="12" sizeklausur="0">
+   <name>Is-H313</name>
+   <hostkey semesterjahr="SS2021">#LOCISH03130</hostkey>
+   <description>Labor Werkstoffphysik (REM/EDX)</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="12" sizeklausur="0">
+   <name>Is-H314</name>
+   <hostkey semesterjahr="SS2021">#LOCISH03140</hostkey>
+   <description>Labor Werkstoffphysik (RH)</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="67" sizeklausur="18">
+   <name>Is-H401</name>
+   <hostkey semesterjahr="SS2021">#LOCISH04010</hostkey>
+   <description>H&ouml;rsaal mit Beamer 67 Pl&auml;tze</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSD2E253</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="50" sizeklausur="18">
+   <name>Is-H402/403</name>
+   <hostkey semesterjahr="SS2021">#LOCISH04020</hostkey>
+   <description>H&ouml;rsaal mit Beamer 50 Pl&auml;tze</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSD2E253</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="32" sizeklausur="0">
+   <name>Is-H404</name>
+   <hostkey semesterjahr="SS2021">#LOCISH04040</hostkey>
+   <description>Labor f&uuml;r Angewandte Informatik #1</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS25B42B</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5B7EDC</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166B1</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H405</name>
+   <hostkey semesterjahr="SS2021">#LOCISH04050</hostkey>
+   <description>Arbeitsraum Usability / Serverraum</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="4" sizeklausur="0">
+   <name>Is-H406</name>
+   <hostkey semesterjahr="SS2021">#LOCISH04060</hostkey>
+   <description>B&uuml;ro S. Rapp</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H407</name>
+   <hostkey semesterjahr="SS2021">#LOCISH04070</hostkey>
+   <description>B&uuml;ro O. Dr&ouml;lle</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H408</name>
+   <hostkey semesterjahr="SS2021">#LOCISH04080</hostkey>
+   <description>Werkstatt Informatik</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="30" sizeklausur="16">
+   <name>Is-H409</name>
+   <hostkey semesterjahr="SS2021">#LOCISH04090</hostkey>
+   <description>Labor f&uuml;r Angewandte Informatik #2</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS25B42B</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5B7EDC</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="22" sizeklausur="12">
+   <name>Is-H410</name>
+   <hostkey semesterjahr="SS2021">#LOCISH04100</hostkey>
+   <description>Seminarraum Angewandte Informatik</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5B7EDC</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="70" sizeklausur="18">
+   <name>Is-H411</name>
+   <hostkey semesterjahr="SS2021">#LOCISH04110</hostkey>
+   <description>H&ouml;rsaal mit Beamer 70 Pl&auml;tze</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSD2E253</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H501</name>
+   <hostkey semesterjahr="SS2021">#LOCISH05010</hostkey>
+   <description>B&uuml;ro Prof. Feser</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H502</name>
+   <hostkey semesterjahr="SS2021">#LOCISH05020</hostkey>
+   <description>Sekretariat Korrosionsschutztechnik; Fr. Steinbach</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="20" sizeklausur="0">
+   <name>Is-H503</name>
+   <hostkey semesterjahr="SS2021">#LOCISH05030</hostkey>
+   <description>Korrosionsschutztechnik Forschung</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="20" sizeklausur="0">
+   <name>Is-H504</name>
+   <hostkey semesterjahr="SS2021">#LOCISH05040</hostkey>
+   <description>Korrosionsschutztechnik Forschung / Analytik</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H506</name>
+   <hostkey semesterjahr="SS2021">#LOCISH05060</hostkey>
+   <description>B&uuml;ro</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="24" sizeklausur="8">
+   <name>Is-H509</name>
+   <hostkey semesterjahr="SS2021">#LOCISH05090</hostkey>
+   <description>H&ouml;rsaal 24 Pl&auml;tze, Seminarraum Werkstoffkunde</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSD2E253</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="20" sizeklausur="0">
+   <name>Is-H514</name>
+   <hostkey semesterjahr="SS2021">#LOCISH05140</hostkey>
+   <description>Labor f&uuml;r Werkstoffkunde</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="30" sizeklausur="11">
+   <name>Is-H517</name>
+   <hostkey semesterjahr="SS2021">#LOCISH05170</hostkey>
+   <description>Seminarraum</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5B7EDC</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSD2E253</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="14" sizeklausur="0">
+   <name>Is-H601</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC5C</hostkey>
+   <description>Labor f&uuml;r Umwelttechnik</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="12" sizeklausur="0">
+   <name>Is-H607</name>
+   <hostkey semesterjahr="SS2021">#SPLUS4533FA</hostkey>
+   <description>Labor f&uuml;r Bioverfahrenstechnik</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H608</name>
+   <hostkey semesterjahr="SS2021">#LOCISH06080</hostkey>
+   <description>B&uuml;ro Prof. K. Hennes</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H609</name>
+   <hostkey semesterjahr="SS2021">#LOCISH06090</hostkey>
+   <description>B&uuml;ro M. Poschmann</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H610</name>
+   <hostkey semesterjahr="SS2021">#LOCISH06100</hostkey>
+   <description>B&uuml;ro R. Szweda</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="12" sizeklausur="0">
+   <name>Is-H612</name>
+   <hostkey semesterjahr="SS2021">#LOCISH06120</hostkey>
+   <description>Labor f&uuml;r Bioverfahrenstechnik / Praktikumsraum 2</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H613</name>
+   <hostkey semesterjahr="SS2021">#LOCISH06130</hostkey>
+   <description>Labor f&uuml;r Bioverfahrenstechnik / Kultur- und Technikraum</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="0">
+   <name>Is-H615</name>
+   <hostkey semesterjahr="SS2021">#LOCISH06150</hostkey>
+   <description>Labor f&uuml;r Biologie</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-H619</name>
+   <hostkey semesterjahr="SS2021">#LOCISH06190</hostkey>
+   <description>B&uuml;ro Projektmitarbeiter</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="100" sizeklausur="0">
+   <name>Is-HE00</name>
+   <hostkey semesterjahr="SS2021">#LOCISH00010</hostkey>
+   <description>Foyer</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="17" sizeklausur="0">
+   <name>Is-HE04</name>
+   <hostkey semesterjahr="SS2021">#SPLUS032260</hostkey>
+   <description>Labor f&uuml;r Korrosionsschutztechnik (PC)</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="17" sizeklausur="0">
+   <name>Is-HE05</name>
+   <hostkey semesterjahr="SS2021">#LOCISH00500</hostkey>
+   <description>B&uuml;ro Buschmann</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="2" sizeklausur="0">
+   <name>Is-HE11</name>
+   <hostkey semesterjahr="SS2021">#SPLUSDD3363</hostkey>
+   <description>AStA B&uuml;ro</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="2" sizeklausur="0">
+   <name>Is-HE12</name>
+   <hostkey semesterjahr="SS2021">#SPLUSDD3362</hostkey>
+   <description>AStA Lehrmittelverkauf</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="2" sizeklausur="0">
+   <name>Is-HE14</name>
+   <hostkey semesterjahr="SS2021">#SPLUSDD3361</hostkey>
+   <description>Sanit&auml;tsraum</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="0">
+   <name>Is-IFEU</name>
+   <hostkey semesterjahr="SS2021">#SPLUS1D142B</hostkey>
+   <description>Im Kalkofen 6, Iserlohn https://goo.gl/maps/q7dkv</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="13" sizeklausur="0">
+   <name>Is-K009</name>
+   <hostkey semesterjahr="SS2021">#SPLUS6E59F1</hostkey>
+   <description>KunststoffVerarbeitungsLabor</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="13" sizeklausur="0">
+   <name>Is-K011</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC52</hostkey>
+   <description>KunststoffVerarbeitungsLabor</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="12" sizeklausur="0">
+   <name>Is-K013</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC60</hostkey>
+   <description>Labor Kolbenmaschinen</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="30" sizeklausur="13">
+   <name>Is-K103</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC53</hostkey>
+   <description>Seminarraum Kunststoffverarbeitung</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="0">
+   <name>Is-K107</name>
+   <hostkey semesterjahr="SS2021">#SPLUSF150C3</hostkey>
+   <description>Qualit&auml;ts- / Instandhaltungsmanagement</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="16" sizeklausur="0">
+   <name>Is-K113</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC58</hostkey>
+   <description>Labor f&uuml;r Str&ouml;mungsmaschinen</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="14" sizeklausur="5">
+   <name>Is-K203</name>
+   <hostkey semesterjahr="SS2021">#SPLUSC41C93</hostkey>
+   <description>Labor Industrial Engineering</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="1">
+   <name>Is-K205</name>
+   <hostkey semesterjahr="SS2021">#SPLUS72EB11</hostkey>
+   <description></description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="21" sizeklausur="10">
+   <name>Is-K206</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC4D</hostkey>
+   <description>Labor f&uuml;r Elektrotechnik</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="0">
+   <name>Is-K211</name>
+   <hostkey semesterjahr="SS2021">#SPLUS312A4D</hostkey>
+   <description>Labor f&uuml;r Sensorik und Bussysteme</description>
+   <location-suitabilities>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="1">
+   <name>Is-K212</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC64</hostkey>
+   <description>Digitale Bildverarbeitung</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="0">
+   <name>Is-K213</name>
+   <hostkey semesterjahr="SS2021">#SPLUS312A4E</hostkey>
+   <description>Labor f&uuml;r Automation in der Produktion</description>
+   <location-suitabilities>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="0">
+   <name>Is-K214</name>
+   <hostkey semesterjahr="SS2021">#SPLUSD2E262</hostkey>
+   <description>Robotertechnik</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="2">
+   <name>Is-LFM</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC54</hostkey>
+   <description>Labor f&uuml;r Massivumformung (LFM)</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="10" sizeklausur="0">
+   <name>Is-M202</name>
+   <hostkey semesterjahr="SS2021">#SPLUSF15048</hostkey>
+   <description>Werkzeugmaschinenhalle 10 Pl&auml;tze</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="17" sizeklausur="6">
+   <name>Is-M206</name>
+   <hostkey semesterjahr="SS2021">#SPLUSF15049</hostkey>
+   <description>Werkzeugmaschinenhalle Seminarraum 10 Pl&auml;tze</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="136" sizeklausur="19">
+   <name>Is-M301</name>
+   <hostkey semesterjahr="SS2021">#LOCISM03010</hostkey>
+   <description>H&ouml;rsaal mit 8 Reihen a 17 Pl&auml;tze, ohne Aufzug</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS24E446</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5B7EDC</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSB0205E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="0">
+   <name>Is-P001</name>
+   <hostkey semesterjahr="SS2021">#LOCISP00010</hostkey>
+   <description>Labor f&uuml;r Biotechnologie II</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="20" sizeklausur="0">
+   <name>Is-P004</name>
+   <hostkey semesterjahr="SS2021">#LOCISP00040</hostkey>
+   <description>B&uuml;ro Chometon-Luthe, Hermann</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="30" sizeklausur="0">
+   <name>Is-P005</name>
+   <hostkey semesterjahr="SS2021">#SPLUS39908F</hostkey>
+   <description>Labor LSE</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="2">
+   <name>Is-P102</name>
+   <hostkey semesterjahr="SS2021">#LOCISP01020</hostkey>
+   <description>Labor f&uuml;r Fluidtechnik</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-P103</name>
+   <hostkey semesterjahr="SS2021">#LOCISP01030</hostkey>
+   <description>Labor f&uuml;r Fluidtechnik I; Prof. Kirsch</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-P104</name>
+   <hostkey semesterjahr="SS2021">#LOCISP01040</hostkey>
+   <description>B&uuml;ro Prof. M. R&uuml;bsam</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="0">
+   <name>Is-P105</name>
+   <hostkey semesterjahr="SS2021">#LOCISP01050</hostkey>
+   <description>Labor f&uuml;r Rechnernetze</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5B7EDC</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="8">
+   <name>Is-P106</name>
+   <hostkey semesterjahr="SS2021">#SPLUS7F1A92</hostkey>
+   <description>cas.lab Medienraum</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5B7EDC</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="0">
+   <name>Is-P107</name>
+   <hostkey semesterjahr="SS2021">#SPLUS1ADAF8</hostkey>
+   <description>cas.lab</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-P108</name>
+   <hostkey semesterjahr="SS2021">#LOCISP01080</hostkey>
+   <description>B&uuml;ro P. vom Orde / Gerles</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="11" sizeklausur="0">
+   <name>Is-P201</name>
+   <hostkey semesterjahr="SS2021">#LOCISP02010</hostkey>
+   <description>Labor f&uuml;r Physikalische Effekte an Nanostrukturen / Labor f&uuml;r Lasertechnik</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-P202</name>
+   <hostkey semesterjahr="SS2021">#LOCISP02020</hostkey>
+   <description>B&uuml;ro Brenig</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="20" sizeklausur="0">
+   <name>Is-P203</name>
+   <hostkey semesterjahr="SS2021">#LOCISP02030</hostkey>
+   <description>cic.lab / Labor f&uuml;r Regelungstechnik</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5B7EDC</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-P204</name>
+   <hostkey semesterjahr="SS2021">#LOCISP02040</hostkey>
+   <description>B&uuml;ro J. Tigges</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="2" sizeklausur="0">
+   <name>Is-P205</name>
+   <hostkey semesterjahr="SS2021">#LOCISP02050</hostkey>
+   <description>elab Projektraum</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="16" sizeklausur="0">
+   <name>Is-P206</name>
+   <hostkey semesterjahr="SS2021">#LOCISP02060</hostkey>
+   <description>Labor f&uuml;r Technische Informatik (elab)</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="16" sizeklausur="3">
+   <name>Is-P207</name>
+   <hostkey semesterjahr="SS2021">#LOCISP02070</hostkey>
+   <description>elab / Schreibwerkstatt</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-P208</name>
+   <hostkey semesterjahr="SS2021">#LOCISP02080</hostkey>
+   <description>B&uuml;ro Prof. M&uuml;tterlein</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-P209</name>
+   <hostkey semesterjahr="SS2021">#LOCISP02090</hostkey>
+   <description>B&uuml;ro Prof. Lehmann</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="134" sizeklausur="19">
+   <name>Is-P301</name>
+   <hostkey semesterjahr="SS2021">#LOCISP03010</hostkey>
+   <description>H&ouml;rsaal mit 8 Reihen a 17 (1. Reihe 15) Pl&auml;tzen</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS24E446</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5B7EDC</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5F1FD1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSB0205E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="20" sizeklausur="0">
+   <name>Is-P302</name>
+   <hostkey semesterjahr="SS2021">#LOCISP03020</hostkey>
+   <description>Physik-Sammlung</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="20" sizeklausur="0">
+   <name>Is-P304</name>
+   <hostkey semesterjahr="SS2021">#LOCISP03040</hostkey>
+   <description>Physiklabor</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="36" sizeklausur="18">
+   <name>Is-P308</name>
+   <hostkey semesterjahr="SS2021">#LOCISP03080</hostkey>
+   <description>Labor f&uuml;r Angewandte Informatik #3</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5B7EDC</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AE</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-P309</name>
+   <hostkey semesterjahr="SS2021">#LOCISP03090</hostkey>
+   <description>B&uuml;ro Physik</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="1">
+   <name>Is-Z103</name>
+   <hostkey semesterjahr="SS2021">#SPLUSC4C9CF</hostkey>
+   <description>B&uuml;ro Krone</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-Z104</name>
+   <hostkey semesterjahr="SS2021">#LOCISZ01040</hostkey>
+   <description>B&uuml;ro M. Faulstich / T. Holke</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="1">
+   <name>Is-Z105</name>
+   <hostkey semesterjahr="SS2021">#SPLUS12154B</hostkey>
+   <description>B&uuml;ro Koop, Kameni</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="1">
+   <name>Is-Z106</name>
+   <hostkey semesterjahr="SS2021">#SPLUS8835CD</hostkey>
+   <description>B&uuml;ro Prof. E&szlig;er</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-Z107</name>
+   <hostkey semesterjahr="SS2021">#SPLUS8835CC</hostkey>
+   <description>B&uuml;ro Prof. U. Klug</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="2" sizeklausur="2">
+   <name>Is-Z108</name>
+   <hostkey semesterjahr="SS2021">#SPLUS1A76BF</hostkey>
+   <description>B&uuml;ro Prof. K.Sch&ouml;ler</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="30" sizeklausur="0">
+   <name>Is-Z116</name>
+   <hostkey semesterjahr="SS2021">#LOCISZ01160</hostkey>
+   <description>Besprechungsraum nur &uuml;ber Tel. 111 buchen, eine Buchung im VPIS ist zwecklos</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS23F7AB</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="0">
+   <name>Is-Z121</name>
+   <hostkey semesterjahr="SS2021">#SPLUS850472</hostkey>
+   <description></description>
+   <location-suitabilities>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="1">
+   <name>Is-Z122</name>
+   <hostkey semesterjahr="SS2021">#LOCISZ01220</hostkey>
+   <description>B&uuml;ro Prof. Giefers</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="1">
+   <name>Is-Z123</name>
+   <hostkey semesterjahr="SS2021">#LOCISZ01230</hostkey>
+   <description>B&uuml;ro Prof. R. H&uuml;hne</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="1">
+   <name>Is-Z124</name>
+   <hostkey semesterjahr="SS2021">#LOCISZ01240</hostkey>
+   <description>B&uuml;ro Prof. A. Steins</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="0">
+   <name>Is-Z127</name>
+   <hostkey semesterjahr="SS2021">#LOCISZ01270</hostkey>
+   <description>B&uuml;ro J. Butterwegge</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="3" sizeklausur="1">
+   <name>Is-Z129</name>
+   <hostkey semesterjahr="SS2021">#LOCISZ01290</hostkey>
+   <description>B&uuml;ro U. Gogolin / Kr&auml;mer</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC166AF</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="0">
+   <name>Is-ZE01</name>
+   <hostkey semesterjahr="SS2021">#SPLUSF3339A</hostkey>
+   <description>Benutzerberatung IT-Services</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="11" sizeklausur="9">
+   <name>Is-ZE02</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC44</hostkey>
+   <description>PC-Pool (11+1 PC)</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS5F1FDA</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS815ABD</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="11" sizeklausur="11">
+   <name>Is-ZE04</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC45</hostkey>
+   <description>PC-Pool (11+1 PC)</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS5F1FDA</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS815ABD</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B2</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="1" sizeklausur="0">
+   <name>Is-ZE07</name>
+   <hostkey semesterjahr="SS2021">#SPLUSF33399</hostkey>
+   <description>IT-Services Technik</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="10">
+   <name>Is-ZE08</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC46</hostkey>
+   <description>Konstruktions- und  PC-Pool Catia</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS5F1FDA</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC46FE6</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSD3CA06</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="15" sizeklausur="11">
+   <name>Is-ZE09</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC49</hostkey>
+   <description>Konstruktions- und  PC-Pool</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS5F1FDA</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC46FE6</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSD3CA06</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="30" sizeklausur="15">
+   <name>Is-ZE10</name>
+   <hostkey semesterjahr="SS2021">#SPLUSDBB062</hostkey>
+   <description>Seminarraum</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="10" sizeklausur="0">
+   <name>Is-ZE11</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC4B</hostkey>
+   <description>Studentischer Arbeitsraum</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="20" sizeklausur="20">
+   <name>Is-ZE12</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC48</hostkey>
+   <description>PC-Pool mit Beamer</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS5F1FDA</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B1</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUSC46FE6</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="5" sizeklausur="1">
+   <name>Is-ZE13</name>
+   <hostkey semesterjahr="SS2021">#SPLUSC981CB</hostkey>
+   <description>B&uuml;ro Wiegand</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="20" sizeklausur="15">
+   <name>Is-ZE14</name>
+   <hostkey semesterjahr="SS2021">#SPLUS38CC47</hostkey>
+   <description>PC-Pool mit Beamer</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS105BC3</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS5B7EDC</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS5F1FDA</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS815ABD</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="J" secondary="N">#SPLUS9E087E</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B0</location-suitability>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUSC166B1</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="24" sizeklausur="0">
+   <name>Is-ZU01</name>
+   <hostkey semesterjahr="SS2021">#SPLUS4D4766</hostkey>
+   <description>Schulungsraum Bibliothek Iserlohn</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+  <location size="24" sizeklausur="0">
+   <name>Is-ZU08</name>
+   <hostkey semesterjahr="SS2021">#SPLUS4D4765</hostkey>
+   <description>Bibliothek Iserlohn</description>
+   <location-suitabilities>
+     <location-suitability semesterjahr="SS2021" primary="N" secondary="J">#SPLUS9E087E</location-suitability>
+   </location-suitabilities>
+  </location>
+ </locations>
+
+ <activities>
+  <activity lastchange="2021-04-16 10:23:35">
+   <name>Konstruieren mit Kunststoffen</name>
+   <hostkey semesterjahr="SS2021">#SPLUS095A2D</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-16" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-23" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-30" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-07" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-14" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-21" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-28" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-04" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-11" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-18" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-25" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-07-02" begin="09:45" end="11:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-ZE14</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Gie&szlig;</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-IP1A-1</activity-student-set>
+    <activity-student-set>Is-KT4-01</activity-student-set>
+    <activity-student-set>Is-KT4-02</activity-student-set>
+    <activity-student-set>Is-KT4-06</activity-student-set>
+    <activity-student-set>Is-KT6-1</activity-student-set>
+    <activity-student-set>Is-KT6-2</activity-student-set>
+    <activity-student-set>Is-PK4-03</activity-student-set>
+    <activity-student-set>Is-PK4-11</activity-student-set>
+    <activity-student-set>Is-PK4-17</activity-student-set>
+    <activity-student-set>Is-PK4-21</activity-student-set>
+    <activity-student-set>Is-PK4B</activity-student-set>
+    <activity-student-set>Is-PK4B1</activity-student-set>
+    <activity-student-set>Is-PK4F-2</activity-student-set>
+    <activity-student-set>Is-PK6-03</activity-student-set>
+    <activity-student-set>Is-PK6K1</activity-student-set>
+    <activity-student-set>Is-PK6K2</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-14 01:32:11">
+   <name>Industriebetriebslehre/Kostenrechnung</name>
+   <hostkey semesterjahr="SS2021">#SPLUS0D853A</hostkey>
+   <activity-type short="V">Vorlesung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-04-16" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-04-23" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-04-30" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-07" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-14" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-21" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-28" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-04" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-11" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-18" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-25" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-07-02" begin="14:00" end="15:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-C301</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Gerhardt</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-AM4-01</activity-student-set>
+    <activity-student-set>Is-AM4-02</activity-student-set>
+    <activity-student-set>Is-AM4-03</activity-student-set>
+    <activity-student-set>Is-AM4-04</activity-student-set>
+    <activity-student-set>Is-AM4-05</activity-student-set>
+    <activity-student-set>Is-AM4-06</activity-student-set>
+    <activity-student-set>Is-AM4-08</activity-student-set>
+    <activity-student-set>Is-AM4-09</activity-student-set>
+    <activity-student-set>Is-AM4-10</activity-student-set>
+    <activity-student-set>Is-AM4-11</activity-student-set>
+    <activity-student-set>Is-AM4-12</activity-student-set>
+    <activity-student-set>Is-AM4-13</activity-student-set>
+    <activity-student-set>Is-AM4-14</activity-student-set>
+    <activity-student-set>Is-AM4-15</activity-student-set>
+    <activity-student-set>Is-AM4-16</activity-student-set>
+    <activity-student-set>Is-AM4-17</activity-student-set>
+    <activity-student-set>Is-AM4-22</activity-student-set>
+    <activity-student-set>Is-AM4-25</activity-student-set>
+    <activity-student-set>Is-AM4-V</activity-student-set>
+    <activity-student-set>Is-AM4G</activity-student-set>
+    <activity-student-set>Is-AM6-02</activity-student-set>
+    <activity-student-set>Is-KT2-01</activity-student-set>
+    <activity-student-set>Is-KT4-01</activity-student-set>
+    <activity-student-set>Is-KT4-02</activity-student-set>
+    <activity-student-set>Is-KT4-03</activity-student-set>
+    <activity-student-set>Is-KT4-04</activity-student-set>
+    <activity-student-set>Is-KT4-06</activity-student-set>
+    <activity-student-set>Is-KT4-V</activity-student-set>
+    <activity-student-set>Is-KT6-1</activity-student-set>
+    <activity-student-set>Is-MT2-01</activity-student-set>
+    <activity-student-set>Is-MT2-02</activity-student-set>
+    <activity-student-set>Is-MT2-03</activity-student-set>
+    <activity-student-set>Is-MT4-01</activity-student-set>
+    <activity-student-set>Is-MT4-02</activity-student-set>
+    <activity-student-set>Is-MT4-04</activity-student-set>
+    <activity-student-set>Is-MT4-05</activity-student-set>
+    <activity-student-set>Is-MT4-06</activity-student-set>
+    <activity-student-set>Is-MT4-07</activity-student-set>
+    <activity-student-set>Is-MT4-09</activity-student-set>
+    <activity-student-set>Is-MT4-10</activity-student-set>
+    <activity-student-set>Is-MT4-11</activity-student-set>
+    <activity-student-set>Is-MT4-12</activity-student-set>
+    <activity-student-set>Is-MT4-14</activity-student-set>
+    <activity-student-set>Is-MT4-15</activity-student-set>
+    <activity-student-set>Is-MT4-16</activity-student-set>
+    <activity-student-set>Is-MT4-17</activity-student-set>
+    <activity-student-set>Is-MT4-V</activity-student-set>
+    <activity-student-set>Is-MT4F-1</activity-student-set>
+    <activity-student-set>Is-MT4F-2</activity-student-set>
+    <activity-student-set>Is-MT4G</activity-student-set>
+    <activity-student-set>Is-MT6-03</activity-student-set>
+    <activity-student-set>Is-MT6-04</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-12 18:22:37">
+   <name>Automobilaufbau/Karosserie</name>
+   <hostkey semesterjahr="SS2021">#SPLUS137096</hostkey>
+   <activity-type short="&Uuml;">&Uuml;bung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-23" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-30" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-07" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-14" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-21" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-28" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-04" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-11" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-18" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-25" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-07-02" begin="09:45" end="11:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H517</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Hannibal</activity-staff>
+    <activity-staff>Otto</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-AM2-01</activity-student-set>
+    <activity-student-set>Is-AM4-01</activity-student-set>
+    <activity-student-set>Is-AM4-03</activity-student-set>
+    <activity-student-set>Is-AM4-04</activity-student-set>
+    <activity-student-set>Is-AM4-05</activity-student-set>
+    <activity-student-set>Is-AM4-06</activity-student-set>
+    <activity-student-set>Is-AM4-08</activity-student-set>
+    <activity-student-set>Is-AM4-09</activity-student-set>
+    <activity-student-set>Is-AM4-10</activity-student-set>
+    <activity-student-set>Is-AM4-11</activity-student-set>
+    <activity-student-set>Is-AM4-12</activity-student-set>
+    <activity-student-set>Is-AM4-13</activity-student-set>
+    <activity-student-set>Is-AM4-14</activity-student-set>
+    <activity-student-set>Is-AM4-15</activity-student-set>
+    <activity-student-set>Is-AM4-16</activity-student-set>
+    <activity-student-set>Is-AM4-17</activity-student-set>
+    <activity-student-set>Is-AM4-18</activity-student-set>
+    <activity-student-set>Is-AM4-25</activity-student-set>
+    <activity-student-set>Is-AM4-V</activity-student-set>
+    <activity-student-set>Is-AM4G</activity-student-set>
+    <activity-student-set>Is-AM6-04</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-12 17:42:34">
+   <name>Elektronik, Sensoren und Regler</name>
+   <hostkey semesterjahr="SS2021">#SPLUS1598DE</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description>10 Termine 2:15h</description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="14:00" end="16:15"></activity-date>
+    <activity-date date="2021-04-23" begin="14:00" end="16:15"></activity-date>
+    <activity-date date="2021-04-30" begin="14:00" end="16:15"></activity-date>
+    <activity-date date="2021-05-07" begin="14:00" end="16:15"></activity-date>
+    <activity-date date="2021-05-14" begin="14:00" end="16:15"></activity-date>
+    <activity-date date="2021-05-21" begin="14:00" end="16:15"></activity-date>
+    <activity-date date="2021-05-28" begin="14:00" end="16:15"></activity-date>
+    <activity-date date="2021-06-04" begin="14:00" end="16:15"></activity-date>
+    <activity-date date="2021-06-11" begin="14:00" end="16:15"></activity-date>
+    <activity-date date="2021-06-18" begin="14:00" end="16:15"></activity-date>
+    <activity-date date="2021-06-25" begin="14:00" end="16:15"></activity-date>
+    <activity-date date="2021-07-02" begin="14:00" end="16:15"></activity-date>
+    <activity-date date="2021-07-09" begin="14:00" end="16:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-P206</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>M&uuml;tterlein</activity-staff>
+    <activity-staff>Tigges</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-BN-B4A1</activity-student-set>
+    <activity-student-set>Is-BN-B4A3</activity-student-set>
+    <activity-student-set>Is-BN-B4A4</activity-student-set>
+    <activity-student-set>Is-BN-B4AB1</activity-student-set>
+    <activity-student-set>Is-BN-B4AB2</activity-student-set>
+    <activity-student-set>Is-BN-B4BC1</activity-student-set>
+    <activity-student-set>Is-BN-B4BC2</activity-student-set>
+    <activity-student-set>Is-BN-B4BC3</activity-student-set>
+    <activity-student-set>Is-BN-B6A1</activity-student-set>
+    <activity-student-set>Is-BN-B6B1</activity-student-set>
+    <activity-student-set>Is-BN-B8B1</activity-student-set>
+    <activity-student-set>Is-BN-B8K1</activity-student-set>
+    <activity-student-set>Is-BN-B8K2</activity-student-set>
+    <activity-student-set>Is-BN-B8K7</activity-student-set>
+    <activity-student-set>Is-BN-B8L1</activity-student-set>
+    <activity-student-set>Is-BN-B8P1</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-03-01 11:18:31">
+   <name>Elektronik, Sensoren und Regler</name>
+   <hostkey semesterjahr="SS2021">#SPLUS212DE1</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description>10 Termine 2:15h</description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="11:30" end="13:45"></activity-date>
+    <activity-date date="2021-04-23" begin="11:30" end="13:45"></activity-date>
+    <activity-date date="2021-04-30" begin="11:30" end="13:45"></activity-date>
+    <activity-date date="2021-05-07" begin="11:30" end="13:45"></activity-date>
+    <activity-date date="2021-05-14" begin="11:30" end="13:45"></activity-date>
+    <activity-date date="2021-05-21" begin="11:30" end="13:45"></activity-date>
+    <activity-date date="2021-05-28" begin="11:30" end="13:45"></activity-date>
+    <activity-date date="2021-06-04" begin="11:30" end="13:45"></activity-date>
+    <activity-date date="2021-06-11" begin="11:30" end="13:45"></activity-date>
+    <activity-date date="2021-06-18" begin="11:30" end="13:45"></activity-date>
+    <activity-date date="2021-06-25" begin="11:30" end="13:45"></activity-date>
+    <activity-date date="2021-07-02" begin="11:30" end="13:45"></activity-date>
+    <activity-date date="2021-07-09" begin="11:30" end="13:45"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-P206</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>M&uuml;tterlein</activity-staff>
+    <activity-staff>Tigges</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-BN-B4AC1</activity-student-set>
+    <activity-student-set>Is-BN-B4AC2</activity-student-set>
+    <activity-student-set>Is-BN-B4B1</activity-student-set>
+    <activity-student-set>Is-BN-B4BC4</activity-student-set>
+    <activity-student-set>Is-BN-B4BC5</activity-student-set>
+    <activity-student-set>Is-BN-B4D1</activity-student-set>
+    <activity-student-set>Is-BN-B4E1</activity-student-set>
+    <activity-student-set>Is-BN-B4EG1</activity-student-set>
+    <activity-student-set>Is-BN-B4G1</activity-student-set>
+    <activity-student-set>Is-BN-B8D1</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-05-04 00:41:53">
+   <name>Advanced CAD / CAE</name>
+   <hostkey semesterjahr="SS2021">#SPLUS3B31AC</hostkey>
+   <activity-type short="S">Seminar</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-16" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-23" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-30" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-07" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-14" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-21" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-28" begin="08:00" end="09:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-ZE12</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Sch&uuml;tte, S.</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-PK4-01</activity-student-set>
+    <activity-student-set>Is-PK4-02</activity-student-set>
+    <activity-student-set>Is-PK6-01</activity-student-set>
+    <activity-student-set>Is-PK6-02</activity-student-set>
+    <activity-student-set>Is-PK6-03</activity-student-set>
+    <activity-student-set>Is-PK6-05</activity-student-set>
+    <activity-student-set>Is-PK6-06</activity-student-set>
+    <activity-student-set>Is-PK6-07</activity-student-set>
+    <activity-student-set>Is-PK6-08</activity-student-set>
+    <activity-student-set>Is-PK6-09</activity-student-set>
+    <activity-student-set>Is-PK6-10</activity-student-set>
+    <activity-student-set>Is-PK6-13</activity-student-set>
+    <activity-student-set>Is-PK6-14</activity-student-set>
+    <activity-student-set>Is-PK6-V</activity-student-set>
+    <activity-student-set>Is-PK6K1</activity-student-set>
+    <activity-student-set>Is-PK6K2</activity-student-set>
+    <activity-student-set>Is-PK6K3</activity-student-set>
+    <activity-student-set>Is-PK6K4</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-05-04 00:41:53">
+   <name>Advanced CAD / CAE</name>
+   <hostkey semesterjahr="SS2021">#SPLUS3B31AE</hostkey>
+   <activity-type short="S">Seminar</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-16" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-23" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-30" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-07" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-14" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-21" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-28" begin="11:45" end="13:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-ZE12</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Sch&uuml;tte, S.</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-PK4-01</activity-student-set>
+    <activity-student-set>Is-PK4-02</activity-student-set>
+    <activity-student-set>Is-PK6-01</activity-student-set>
+    <activity-student-set>Is-PK6-02</activity-student-set>
+    <activity-student-set>Is-PK6-03</activity-student-set>
+    <activity-student-set>Is-PK6-05</activity-student-set>
+    <activity-student-set>Is-PK6-06</activity-student-set>
+    <activity-student-set>Is-PK6-07</activity-student-set>
+    <activity-student-set>Is-PK6-08</activity-student-set>
+    <activity-student-set>Is-PK6-09</activity-student-set>
+    <activity-student-set>Is-PK6-10</activity-student-set>
+    <activity-student-set>Is-PK6-13</activity-student-set>
+    <activity-student-set>Is-PK6-14</activity-student-set>
+    <activity-student-set>Is-PK6-V</activity-student-set>
+    <activity-student-set>Is-PK6K1</activity-student-set>
+    <activity-student-set>Is-PK6K2</activity-student-set>
+    <activity-student-set>Is-PK6K3</activity-student-set>
+    <activity-student-set>Is-PK6K4</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-19 12:37:48">
+   <name>Werkstoffe III</name>
+   <hostkey semesterjahr="SS2021">#SPLUS40F58E</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description>4x 3h</description>
+   <activity-dates>
+    <activity-date date="2021-04-30" begin="11:30" end="14:30"></activity-date>
+    <activity-date date="2021-05-28" begin="11:30" end="14:30"></activity-date>
+    <activity-date date="2021-06-11" begin="11:30" end="14:30"></activity-date>
+    <activity-date date="2021-06-25" begin="11:30" end="14:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-HE04</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Buschmann</activity-staff>
+    <activity-staff>Feser</activity-staff>
+    <activity-staff>Nawrath, N.</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-WO-B2A</activity-student-set>
+    <activity-student-set>Is-WO-B2B</activity-student-set>
+    <activity-student-set>Is-WO-B4A2</activity-student-set>
+    <activity-student-set>Is-WO-B4N1</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-07 16:43:52">
+   <name>Simulation mechatronischer Systeme</name>
+   <hostkey semesterjahr="SS2021">#SPLUS4268AA</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-16" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-23" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-30" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-07" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-14" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-21" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-28" begin="09:45" end="11:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H301</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Schulte, Mo.</activity-staff>
+    <activity-staff>Skambraks</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-MT4-01</activity-student-set>
+    <activity-student-set>Is-MT4-03</activity-student-set>
+    <activity-student-set>Is-MT6-03</activity-student-set>
+    <activity-student-set>Is-MT6-04</activity-student-set>
+    <activity-student-set>Is-MT6-05</activity-student-set>
+    <activity-student-set>Is-MT6-06</activity-student-set>
+    <activity-student-set>Is-MT6-07</activity-student-set>
+    <activity-student-set>Is-MT6-08</activity-student-set>
+    <activity-student-set>Is-MT6-09</activity-student-set>
+    <activity-student-set>Is-MT6M-2</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-07 16:43:52">
+   <name>Simulation mechatronischer Systeme</name>
+   <hostkey semesterjahr="SS2021">#SPLUS4268B4</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-16" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-23" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-30" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-07" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-14" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-21" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-28" begin="11:45" end="13:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H301</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Schulte, Mo.</activity-staff>
+    <activity-staff>Skambraks</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-MT4-01</activity-student-set>
+    <activity-student-set>Is-MT4-03</activity-student-set>
+    <activity-student-set>Is-MT6-03</activity-student-set>
+    <activity-student-set>Is-MT6-04</activity-student-set>
+    <activity-student-set>Is-MT6-05</activity-student-set>
+    <activity-student-set>Is-MT6-06</activity-student-set>
+    <activity-student-set>Is-MT6-07</activity-student-set>
+    <activity-student-set>Is-MT6-08</activity-student-set>
+    <activity-student-set>Is-MT6-09</activity-student-set>
+    <activity-student-set>Is-MT6M-2</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-14 01:32:11">
+   <name>Industriebetriebslehre/Kostenrechnung</name>
+   <hostkey semesterjahr="SS2021">#SPLUS4A4F0A</hostkey>
+   <activity-type short="V">Vorlesung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-16" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-23" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-30" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-07" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-14" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-21" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-28" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-04" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-11" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-18" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-25" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-07-02" begin="08:00" end="09:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-M301</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Gerhardt</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-AM4-01</activity-student-set>
+    <activity-student-set>Is-AM4-02</activity-student-set>
+    <activity-student-set>Is-AM4-03</activity-student-set>
+    <activity-student-set>Is-AM4-04</activity-student-set>
+    <activity-student-set>Is-AM4-05</activity-student-set>
+    <activity-student-set>Is-AM4-06</activity-student-set>
+    <activity-student-set>Is-AM4-08</activity-student-set>
+    <activity-student-set>Is-AM4-09</activity-student-set>
+    <activity-student-set>Is-AM4-10</activity-student-set>
+    <activity-student-set>Is-AM4-11</activity-student-set>
+    <activity-student-set>Is-AM4-12</activity-student-set>
+    <activity-student-set>Is-AM4-13</activity-student-set>
+    <activity-student-set>Is-AM4-14</activity-student-set>
+    <activity-student-set>Is-AM4-15</activity-student-set>
+    <activity-student-set>Is-AM4-16</activity-student-set>
+    <activity-student-set>Is-AM4-17</activity-student-set>
+    <activity-student-set>Is-AM4-22</activity-student-set>
+    <activity-student-set>Is-AM4-25</activity-student-set>
+    <activity-student-set>Is-AM4-V</activity-student-set>
+    <activity-student-set>Is-AM4G</activity-student-set>
+    <activity-student-set>Is-AM6-02</activity-student-set>
+    <activity-student-set>Is-KT2-01</activity-student-set>
+    <activity-student-set>Is-KT4-01</activity-student-set>
+    <activity-student-set>Is-KT4-02</activity-student-set>
+    <activity-student-set>Is-KT4-03</activity-student-set>
+    <activity-student-set>Is-KT4-04</activity-student-set>
+    <activity-student-set>Is-KT4-06</activity-student-set>
+    <activity-student-set>Is-KT4-V</activity-student-set>
+    <activity-student-set>Is-KT6-1</activity-student-set>
+    <activity-student-set>Is-MT2-01</activity-student-set>
+    <activity-student-set>Is-MT2-02</activity-student-set>
+    <activity-student-set>Is-MT2-03</activity-student-set>
+    <activity-student-set>Is-MT4-01</activity-student-set>
+    <activity-student-set>Is-MT4-02</activity-student-set>
+    <activity-student-set>Is-MT4-04</activity-student-set>
+    <activity-student-set>Is-MT4-05</activity-student-set>
+    <activity-student-set>Is-MT4-06</activity-student-set>
+    <activity-student-set>Is-MT4-07</activity-student-set>
+    <activity-student-set>Is-MT4-09</activity-student-set>
+    <activity-student-set>Is-MT4-10</activity-student-set>
+    <activity-student-set>Is-MT4-11</activity-student-set>
+    <activity-student-set>Is-MT4-12</activity-student-set>
+    <activity-student-set>Is-MT4-14</activity-student-set>
+    <activity-student-set>Is-MT4-15</activity-student-set>
+    <activity-student-set>Is-MT4-16</activity-student-set>
+    <activity-student-set>Is-MT4-17</activity-student-set>
+    <activity-student-set>Is-MT4-V</activity-student-set>
+    <activity-student-set>Is-MT4F-1</activity-student-set>
+    <activity-student-set>Is-MT4F-2</activity-student-set>
+    <activity-student-set>Is-MT4G</activity-student-set>
+    <activity-student-set>Is-MT6-03</activity-student-set>
+    <activity-student-set>Is-MT6-04</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-16 10:24:23">
+   <name>Konstruieren mit Kunststoffen</name>
+   <hostkey semesterjahr="SS2021">#SPLUS5EED52</hostkey>
+   <activity-type short="V">Vorlesung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-16" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-23" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-30" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-07" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-14" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-21" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-28" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-06-04" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-06-11" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-06-18" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-06-25" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-07-02" begin="11:45" end="13:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-K103</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Gie&szlig;</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-IP1A-1</activity-student-set>
+    <activity-student-set>Is-KT4-01</activity-student-set>
+    <activity-student-set>Is-KT4-02</activity-student-set>
+    <activity-student-set>Is-KT4-03</activity-student-set>
+    <activity-student-set>Is-KT4-04</activity-student-set>
+    <activity-student-set>Is-KT4-06</activity-student-set>
+    <activity-student-set>Is-KT4-V</activity-student-set>
+    <activity-student-set>Is-KT6-1</activity-student-set>
+    <activity-student-set>Is-KT6-2</activity-student-set>
+    <activity-student-set>Is-PK4-03</activity-student-set>
+    <activity-student-set>Is-PK4-11</activity-student-set>
+    <activity-student-set>Is-PK4-17</activity-student-set>
+    <activity-student-set>Is-PK4-21</activity-student-set>
+    <activity-student-set>Is-PK4B</activity-student-set>
+    <activity-student-set>Is-PK4B1</activity-student-set>
+    <activity-student-set>Is-PK4F-2</activity-student-set>
+    <activity-student-set>Is-PK6-03</activity-student-set>
+    <activity-student-set>Is-PK6K1</activity-student-set>
+    <activity-student-set>Is-PK6K2</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-23 14:02:37">
+   <name>Vertiefung Basistechniken</name>
+   <hostkey semesterjahr="SS2021">#SPLUS6F6875</hostkey>
+   <activity-type short="S">Seminar</activity-type>
+   <description>je 8 Termine / Lehrende</description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-04-16" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-04-23" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-04-30" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-05-07" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-05-14" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-05-21" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-05-28" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-06-04" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-06-11" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-06-18" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-06-25" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-07-02" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-07-09" begin="12:00" end="13:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-P106</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Gerles, R.</activity-staff>
+    <activity-staff>Lenninghaus</activity-staff>
+    <activity-staff>R&uuml;bsam</activity-staff>
+    <activity-staff>vom Orde, P.</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-INF-B2E1</activity-student-set>
+    <activity-student-set>Is-INF-B2E2</activity-student-set>
+    <activity-student-set>Is-INF-B2F</activity-student-set>
+    <activity-student-set>Is-INF-B2G</activity-student-set>
+    <activity-student-set>Is-INF-B2H</activity-student-set>
+    <activity-student-set>Is-INF-B2K1</activity-student-set>
+    <activity-student-set>Is-INF-B4E1</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-08 09:32:07">
+   <name>Rechnernetze 2</name>
+   <hostkey semesterjahr="SS2021">#SPLUS6F6894</hostkey>
+   <activity-type short="&Uuml;-online">&Uuml;bung Online</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-16" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-23" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-30" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-07" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-14" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-21" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-28" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-04" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-11" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-18" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-25" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-07-02" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-07-09" begin="08:00" end="09:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-P105</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Gerles, R.</activity-staff>
+    <activity-staff>R&uuml;bsam</activity-staff>
+    <activity-staff>vom Orde, P.</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-INF-B4C1</activity-student-set>
+    <activity-student-set>Is-INF-B4C2</activity-student-set>
+    <activity-student-set>Is-INF-B4C3</activity-student-set>
+    <activity-student-set>Is-INF-B4C4</activity-student-set>
+    <activity-student-set>Is-INF-B4C5</activity-student-set>
+    <activity-student-set>Is-INF-B4C6</activity-student-set>
+    <activity-student-set>Is-INF-B4C7</activity-student-set>
+    <activity-student-set>Is-INF-B4C8</activity-student-set>
+    <activity-student-set>Is-INF-B4C9</activity-student-set>
+    <activity-student-set>Is-INF-B6C8</activity-student-set>
+    <activity-student-set>Is-INF-B6C9</activity-student-set>
+    <activity-student-set>Is-INF-B6N1</activity-student-set>
+    <activity-student-set>Is-INF-B8A4</activity-student-set>
+    <activity-student-set>Is-INF-B8D2</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-09 08:25:12">
+   <name>CAD 1</name>
+   <hostkey semesterjahr="SS2021">#SPLUS7AAA23</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description>Gruppe 2</description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-23" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-30" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-07" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-14" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-21" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-28" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-04" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-11" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-18" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-25" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-07-02" begin="09:45" end="11:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-ZE12</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Sch&uuml;tte, S.</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-AM2-03</activity-student-set>
+    <activity-student-set>Is-AM2-04</activity-student-set>
+    <activity-student-set>Is-AM2-05</activity-student-set>
+    <activity-student-set>Is-AM2-06</activity-student-set>
+    <activity-student-set>Is-AM2C</activity-student-set>
+    <activity-student-set>Is-FT2C</activity-student-set>
+    <activity-student-set>Is-PK2C</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-26 23:52:35">
+   <name>Werkstoffkunde 2</name>
+   <hostkey semesterjahr="SS2021">#SPLUS7AAA7A</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description>Metall - Gruppe 1</description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-30" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-28" begin="11:45" end="13:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H514</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Cordes, Su.</activity-staff>
+    <activity-staff>Frieling</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-AM2D</activity-student-set>
+    <activity-student-set>Is-AM2E</activity-student-set>
+    <activity-student-set>Is-AM4-14</activity-student-set>
+    <activity-student-set>Is-FT2E</activity-student-set>
+    <activity-student-set>Is-FT4-08</activity-student-set>
+    <activity-student-set>Is-KT2D</activity-student-set>
+    <activity-student-set>Is-KT2E</activity-student-set>
+    <activity-student-set>Is-MT2E</activity-student-set>
+    <activity-student-set>Is-PK2D</activity-student-set>
+    <activity-student-set>Is-PK2E</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-13 08:58:25">
+   <name>Werkstoffkunde 2</name>
+   <hostkey semesterjahr="SS2021">#SPLUS7AAA7E</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description>Metall - Gruppe 3</description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-30" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-28" begin="08:00" end="09:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H514</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Cordes, Su.</activity-staff>
+    <activity-staff>Frieling</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-AM2-08</activity-student-set>
+    <activity-student-set>Is-AM2-10</activity-student-set>
+    <activity-student-set>Is-AM2A</activity-student-set>
+    <activity-student-set>Is-AM4-18</activity-student-set>
+    <activity-student-set>Is-FT2-02</activity-student-set>
+    <activity-student-set>Is-PK2A</activity-student-set>
+    <activity-student-set>Is-PK4-03</activity-student-set>
+    <activity-student-set>Is-PK4-04</activity-student-set>
+    <activity-student-set>Is-PK4-05</activity-student-set>
+    <activity-student-set>Is-WO-B2A</activity-student-set>
+    <activity-student-set>Is-WO-B2B</activity-student-set>
+    <activity-student-set>Is-WO-B2C2</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-12 18:26:58">
+   <name>Maschinenelemente 1</name>
+   <hostkey semesterjahr="SS2021">#SPLUS87888F</hostkey>
+   <activity-type short="&Uuml;">&Uuml;bung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-04-23" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-04-30" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-07" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-14" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-21" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-28" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-04" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-11" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-18" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-25" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-07-02" begin="14:00" end="15:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H213</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Hannibal</activity-staff>
+    <activity-staff>Otto</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-AM2-01</activity-student-set>
+    <activity-student-set>Is-AM2-03</activity-student-set>
+    <activity-student-set>Is-AM2-04</activity-student-set>
+    <activity-student-set>Is-AM2-05</activity-student-set>
+    <activity-student-set>Is-AM2-06</activity-student-set>
+    <activity-student-set>Is-AM2-07</activity-student-set>
+    <activity-student-set>Is-AM2-08</activity-student-set>
+    <activity-student-set>Is-AM2-11</activity-student-set>
+    <activity-student-set>Is-AM2C</activity-student-set>
+    <activity-student-set>Is-AM2D</activity-student-set>
+    <activity-student-set>Is-AM2E</activity-student-set>
+    <activity-student-set>Is-FT2E</activity-student-set>
+    <activity-student-set>Is-KT2-04</activity-student-set>
+    <activity-student-set>Is-KT2D</activity-student-set>
+    <activity-student-set>Is-KT2E</activity-student-set>
+    <activity-student-set>Is-MT2E</activity-student-set>
+    <activity-student-set>Is-PK2D</activity-student-set>
+    <activity-student-set>Is-PK2E</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-12 18:26:58">
+   <name>Maschinenelemente 1</name>
+   <hostkey semesterjahr="SS2021">#SPLUS878893</hostkey>
+   <activity-type short="&Uuml;">&Uuml;bung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-23" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-30" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-07" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-14" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-21" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-28" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-04" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-11" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-18" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-25" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-07-02" begin="08:00" end="09:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-Audimax</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Hannibal</activity-staff>
+    <activity-staff>Otto</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-AM2-17</activity-student-set>
+    <activity-student-set>Is-AM2-18</activity-student-set>
+    <activity-student-set>Is-FT2C</activity-student-set>
+    <activity-student-set>Is-MT2-04</activity-student-set>
+    <activity-student-set>Is-MT2-05</activity-student-set>
+    <activity-student-set>Is-MT2-06</activity-student-set>
+    <activity-student-set>Is-PK2-01</activity-student-set>
+    <activity-student-set>Is-PK2-02</activity-student-set>
+    <activity-student-set>Is-PK2-03</activity-student-set>
+    <activity-student-set>Is-PK2-04</activity-student-set>
+    <activity-student-set>Is-PK2C</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-01 09:14:00">
+   <name>Mathematik 2</name>
+   <hostkey semesterjahr="SS2021">#SPLUS878899</hostkey>
+   <activity-type short="&Uuml;">&Uuml;bung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-16" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-23" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-30" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-07" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-14" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-21" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-04" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-11" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-18" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-06-25" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-07-02" begin="09:45" end="11:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H213</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Gogolin</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-AM2-08</activity-student-set>
+    <activity-student-set>Is-AM2-11</activity-student-set>
+    <activity-student-set>Is-AM2-18</activity-student-set>
+    <activity-student-set>Is-AM2A</activity-student-set>
+    <activity-student-set>Is-AM2D</activity-student-set>
+    <activity-student-set>Is-AM2E</activity-student-set>
+    <activity-student-set>Is-FT2E</activity-student-set>
+    <activity-student-set>Is-KT2D</activity-student-set>
+    <activity-student-set>Is-KT2E</activity-student-set>
+    <activity-student-set>Is-MT2-01</activity-student-set>
+    <activity-student-set>Is-MT2-08</activity-student-set>
+    <activity-student-set>Is-MT2E</activity-student-set>
+    <activity-student-set>Is-PK2-02</activity-student-set>
+    <activity-student-set>Is-PK2A</activity-student-set>
+    <activity-student-set>Is-PK2D</activity-student-set>
+    <activity-student-set>Is-PK2E</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-01 09:14:00">
+   <name>Mathematik 2</name>
+   <hostkey semesterjahr="SS2021">#SPLUS87889B</hostkey>
+   <activity-type short="&Uuml;">&Uuml;bung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-04-16" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-04-23" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-04-30" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-07" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-14" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-21" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-04" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-11" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-18" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-25" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-07-02" begin="14:00" end="15:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H401</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Gogolin</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-AM2-02</activity-student-set>
+    <activity-student-set>Is-AM2-10</activity-student-set>
+    <activity-student-set>Is-AM2-17</activity-student-set>
+    <activity-student-set>Is-FT2-02</activity-student-set>
+    <activity-student-set>Is-FT2-03</activity-student-set>
+    <activity-student-set>Is-FT2-04</activity-student-set>
+    <activity-student-set>Is-FT2-05</activity-student-set>
+    <activity-student-set>Is-KT2-02</activity-student-set>
+    <activity-student-set>Is-KT2-06</activity-student-set>
+    <activity-student-set>Is-KT2-07</activity-student-set>
+    <activity-student-set>Is-KT2-V</activity-student-set>
+    <activity-student-set>Is-MT2-04</activity-student-set>
+    <activity-student-set>Is-MT2-06</activity-student-set>
+    <activity-student-set>Is-PK2-03</activity-student-set>
+    <activity-student-set>Is-PK2-04</activity-student-set>
+    <activity-student-set>Is-PK2-05</activity-student-set>
+    <activity-student-set>Is-PK2-07</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2020-12-09 19:01:22">
+   <name>Deutschkurs B2</name>
+   <hostkey semesterjahr="SS2021">#SPLUS8DF725</hostkey>
+   <activity-type short="Schulung">Schulung</activity-type>
+   <description>Perezonius</description>
+   <activity-dates>
+    <activity-date date="2021-03-29" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-03-30" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-03-31" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-01" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-02" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-05" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-06" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-07" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-08" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-09" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-12" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-13" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-14" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-15" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-16" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-19" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-20" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-21" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-22" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-23" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-26" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-27" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-28" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-29" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-30" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-05-03" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-05-04" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-05-05" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-05-06" begin="14:00" end="18:00"></activity-date>
+    <activity-date date="2021-05-07" begin="14:00" end="18:00"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H517</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>#SPLUS8D4852</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-16 10:24:21">
+   <name>Technische Mechanik 3</name>
+   <hostkey semesterjahr="SS2021">#SPLUS90955A</hostkey>
+   <activity-type short="V">Vorlesung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-04-16" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-04-23" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-04-30" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-07" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-14" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-21" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-28" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-04" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-11" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-18" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-25" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-07-02" begin="14:00" end="15:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H411</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Borchert</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-PK2-01</activity-student-set>
+    <activity-student-set>Is-PK4-01</activity-student-set>
+    <activity-student-set>Is-PK4-02</activity-student-set>
+    <activity-student-set>Is-PK4-03</activity-student-set>
+    <activity-student-set>Is-PK4-04</activity-student-set>
+    <activity-student-set>Is-PK4-05</activity-student-set>
+    <activity-student-set>Is-PK4-06</activity-student-set>
+    <activity-student-set>Is-PK4-07</activity-student-set>
+    <activity-student-set>Is-PK4-08</activity-student-set>
+    <activity-student-set>Is-PK4-09</activity-student-set>
+    <activity-student-set>Is-PK4-10</activity-student-set>
+    <activity-student-set>Is-PK4-11</activity-student-set>
+    <activity-student-set>Is-PK4-12</activity-student-set>
+    <activity-student-set>Is-PK4-13</activity-student-set>
+    <activity-student-set>Is-PK4-14</activity-student-set>
+    <activity-student-set>Is-PK4-15</activity-student-set>
+    <activity-student-set>Is-PK4-17</activity-student-set>
+    <activity-student-set>Is-PK4-18</activity-student-set>
+    <activity-student-set>Is-PK4-19</activity-student-set>
+    <activity-student-set>Is-PK4-20</activity-student-set>
+    <activity-student-set>Is-PK4-21</activity-student-set>
+    <activity-student-set>Is-PK4-V</activity-student-set>
+    <activity-student-set>Is-PK4B</activity-student-set>
+    <activity-student-set>Is-PK4B1</activity-student-set>
+    <activity-student-set>Is-PK4F-1</activity-student-set>
+    <activity-student-set>Is-PK4F-2</activity-student-set>
+    <activity-student-set>Is-PK4H</activity-student-set>
+    <activity-student-set>Is-PK6-01</activity-student-set>
+    <activity-student-set>Is-PK6-02</activity-student-set>
+    <activity-student-set>Is-PK6-03</activity-student-set>
+    <activity-student-set>Is-PK6-04</activity-student-set>
+    <activity-student-set>Is-PK6-05</activity-student-set>
+    <activity-student-set>Is-PK6-12</activity-student-set>
+    <activity-student-set>Is-PK6-13</activity-student-set>
+    <activity-student-set>Is-PK6-14</activity-student-set>
+    <activity-student-set>Is-PK6K1</activity-student-set>
+    <activity-student-set>Is-PK6K2</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-16 10:24:21">
+   <name>Technische Mechanik 3</name>
+   <hostkey semesterjahr="SS2021">#SPLUS90955C</hostkey>
+   <activity-type short="&Uuml;">&Uuml;bung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-04-16" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-04-23" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-04-30" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-05-07" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-05-14" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-05-21" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-05-28" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-06-04" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-06-11" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-06-18" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-06-25" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-07-02" begin="15:45" end="17:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H411</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Borchert</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-PK2-01</activity-student-set>
+    <activity-student-set>Is-PK4-01</activity-student-set>
+    <activity-student-set>Is-PK4-02</activity-student-set>
+    <activity-student-set>Is-PK4-03</activity-student-set>
+    <activity-student-set>Is-PK4-04</activity-student-set>
+    <activity-student-set>Is-PK4-05</activity-student-set>
+    <activity-student-set>Is-PK4-06</activity-student-set>
+    <activity-student-set>Is-PK4-07</activity-student-set>
+    <activity-student-set>Is-PK4-08</activity-student-set>
+    <activity-student-set>Is-PK4-09</activity-student-set>
+    <activity-student-set>Is-PK4-10</activity-student-set>
+    <activity-student-set>Is-PK4-11</activity-student-set>
+    <activity-student-set>Is-PK4-12</activity-student-set>
+    <activity-student-set>Is-PK4-13</activity-student-set>
+    <activity-student-set>Is-PK4-14</activity-student-set>
+    <activity-student-set>Is-PK4-15</activity-student-set>
+    <activity-student-set>Is-PK4-17</activity-student-set>
+    <activity-student-set>Is-PK4-18</activity-student-set>
+    <activity-student-set>Is-PK4-19</activity-student-set>
+    <activity-student-set>Is-PK4-20</activity-student-set>
+    <activity-student-set>Is-PK4-21</activity-student-set>
+    <activity-student-set>Is-PK4-V</activity-student-set>
+    <activity-student-set>Is-PK4B</activity-student-set>
+    <activity-student-set>Is-PK4B1</activity-student-set>
+    <activity-student-set>Is-PK4F-1</activity-student-set>
+    <activity-student-set>Is-PK4F-2</activity-student-set>
+    <activity-student-set>Is-PK4H</activity-student-set>
+    <activity-student-set>Is-PK6-01</activity-student-set>
+    <activity-student-set>Is-PK6-02</activity-student-set>
+    <activity-student-set>Is-PK6-03</activity-student-set>
+    <activity-student-set>Is-PK6-04</activity-student-set>
+    <activity-student-set>Is-PK6-05</activity-student-set>
+    <activity-student-set>Is-PK6-12</activity-student-set>
+    <activity-student-set>Is-PK6-13</activity-student-set>
+    <activity-student-set>Is-PK6-14</activity-student-set>
+    <activity-student-set>Is-PK6K1</activity-student-set>
+    <activity-student-set>Is-PK6K2</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-19 12:06:31">
+   <name>Fertigungsverfahren Kunststoffe 1</name>
+   <hostkey semesterjahr="SS2021">#SPLUS9251D8</hostkey>
+   <activity-type short="V">Vorlesung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-04-23" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-04-30" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-05-14" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-05-21" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-05-28" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-06-11" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-06-25" begin="15:45" end="17:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-K103</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Ujma</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-KT4-01</activity-student-set>
+    <activity-student-set>Is-KT4-02</activity-student-set>
+    <activity-student-set>Is-KT4-03</activity-student-set>
+    <activity-student-set>Is-KT4-04</activity-student-set>
+    <activity-student-set>Is-KT4-06</activity-student-set>
+    <activity-student-set>Is-KT4-V</activity-student-set>
+    <activity-student-set>Is-KT6-1</activity-student-set>
+    <activity-student-set>Is-KT6-2</activity-student-set>
+    <activity-student-set>Is-WO-B4A1</activity-student-set>
+    <activity-student-set>Is-WO-B4A2</activity-student-set>
+    <activity-student-set>Is-WO-B4A3</activity-student-set>
+    <activity-student-set>Is-WO-B4B</activity-student-set>
+    <activity-student-set>Is-WO-B4C</activity-student-set>
+    <activity-student-set>Is-WO-B4N1</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-05-04 12:43:12">
+   <name>Digitaltechnik</name>
+   <hostkey semesterjahr="SS2021">#SPLUSA3176D</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-30" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-14" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-28" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-06-11" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-06-25" begin="11:45" end="13:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H201</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Ellermeyer</activity-staff>
+    <activity-staff>Menze</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-MT4-05</activity-student-set>
+    <activity-student-set>Is-MT4-06</activity-student-set>
+    <activity-student-set>Is-MT4-11</activity-student-set>
+    <activity-student-set>Is-MT4-13</activity-student-set>
+    <activity-student-set>Is-MT4-14</activity-student-set>
+    <activity-student-set>Is-MT4-16</activity-student-set>
+    <activity-student-set>Is-MT4-17</activity-student-set>
+    <activity-student-set>Is-MT4F-2</activity-student-set>
+    <activity-student-set>Is-MT4G</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-09 08:23:14">
+   <name>Simulation der Fertigungsverfahren</name>
+   <hostkey semesterjahr="SS2021">#SPLUSA64B39</hostkey>
+   <activity-type short="V">Vorlesung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-16" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-23" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-30" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-07" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-14" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-21" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-28" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-04" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-11" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-18" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-25" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-07-02" begin="08:00" end="09:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H205</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Dahmen</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-FT4-01</activity-student-set>
+    <activity-student-set>Is-FT4-02</activity-student-set>
+    <activity-student-set>Is-FT4-03</activity-student-set>
+    <activity-student-set>Is-FT4-04</activity-student-set>
+    <activity-student-set>Is-FT4-05</activity-student-set>
+    <activity-student-set>Is-FT4-06</activity-student-set>
+    <activity-student-set>Is-FT4-07</activity-student-set>
+    <activity-student-set>Is-FT4-08</activity-student-set>
+    <activity-student-set>Is-FT4-09</activity-student-set>
+    <activity-student-set>Is-FT4-10</activity-student-set>
+    <activity-student-set>Is-FT4-11</activity-student-set>
+    <activity-student-set>Is-FT4-12</activity-student-set>
+    <activity-student-set>Is-FT4-V</activity-student-set>
+    <activity-student-set>Is-FT4G</activity-student-set>
+    <activity-student-set>Is-FT6-02</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-07 12:26:25">
+   <name>Physikalische Chemie I</name>
+   <hostkey semesterjahr="SS2021">#SPLUSA7ED97</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-30" begin="11:30" end="17:00"></activity-date>
+    <activity-date date="2021-06-11" begin="11:30" end="17:00"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-C206</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Meisterjahn</activity-staff>
+    <activity-staff>Roloff</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-BN-B2A</activity-student-set>
+    <activity-student-set>Is-BN-B2B</activity-student-set>
+    <activity-student-set>Is-BN-B2E</activity-student-set>
+    <activity-student-set>Is-BN-B3Q1</activity-student-set>
+    <activity-student-set>Is-BN-B6K1</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-12 18:22:37">
+   <name>Automobilaufbau/Karosserie</name>
+   <hostkey semesterjahr="SS2021">#SPLUSA8205E</hostkey>
+   <activity-type short="V">Vorlesung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-16" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-23" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-04-30" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-07" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-14" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-21" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-05-28" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-06-04" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-06-11" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-06-18" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-06-25" begin="11:45" end="13:15"></activity-date>
+    <activity-date date="2021-07-02" begin="11:45" end="13:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-A.EG06</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Hannibal</activity-staff>
+    <activity-staff>Otto</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-AM2-01</activity-student-set>
+    <activity-student-set>Is-AM4-01</activity-student-set>
+    <activity-student-set>Is-AM4-03</activity-student-set>
+    <activity-student-set>Is-AM4-04</activity-student-set>
+    <activity-student-set>Is-AM4-05</activity-student-set>
+    <activity-student-set>Is-AM4-06</activity-student-set>
+    <activity-student-set>Is-AM4-08</activity-student-set>
+    <activity-student-set>Is-AM4-09</activity-student-set>
+    <activity-student-set>Is-AM4-10</activity-student-set>
+    <activity-student-set>Is-AM4-11</activity-student-set>
+    <activity-student-set>Is-AM4-12</activity-student-set>
+    <activity-student-set>Is-AM4-13</activity-student-set>
+    <activity-student-set>Is-AM4-14</activity-student-set>
+    <activity-student-set>Is-AM4-15</activity-student-set>
+    <activity-student-set>Is-AM4-16</activity-student-set>
+    <activity-student-set>Is-AM4-17</activity-student-set>
+    <activity-student-set>Is-AM4-18</activity-student-set>
+    <activity-student-set>Is-AM4-25</activity-student-set>
+    <activity-student-set>Is-AM4-V</activity-student-set>
+    <activity-student-set>Is-AM4G</activity-student-set>
+    <activity-student-set>Is-AM6-04</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-12 16:45:03">
+   <name>IT-Sicherheit</name>
+   <hostkey semesterjahr="SS2021">#SPLUSCD9850</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-04-23" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-04-30" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-05-07" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-05-14" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-05-21" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-05-28" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-06-04" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-06-11" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-06-18" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-06-25" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-07-02" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-07-09" begin="12:00" end="13:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H404</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Gogolin</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-INF-B4K1</activity-student-set>
+    <activity-student-set>Is-INF-B4K3</activity-student-set>
+    <activity-student-set>Is-INF-B4L1</activity-student-set>
+    <activity-student-set>Is-INF-B6C3</activity-student-set>
+    <activity-student-set>Is-INF-B6C6</activity-student-set>
+    <activity-student-set>Is-INF-B8C2</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-11 11:17:35">
+   <name>Produktionsmaschinen und -systeme</name>
+   <hostkey semesterjahr="SS2021">#SPLUSCE3DDE</hostkey>
+   <activity-type short="&Uuml;">&Uuml;bung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-16" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-23" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-04-30" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-07" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-14" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-21" begin="09:45" end="11:15"></activity-date>
+    <activity-date date="2021-05-28" begin="09:45" end="11:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-M206</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Cordes, Su.</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-FT4-12</activity-student-set>
+    <activity-student-set>Is-FT6-01</activity-student-set>
+    <activity-student-set>Is-FT6-02</activity-student-set>
+    <activity-student-set>Is-FT6-04</activity-student-set>
+    <activity-student-set>Is-FT6-05</activity-student-set>
+    <activity-student-set>Is-FT6-V</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-03-22 11:31:52">
+   <name>Datenbanken 1</name>
+   <hostkey semesterjahr="SS2021">#SPLUSEE50F2</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description>via Zoom</description>
+   <activity-dates>
+    <activity-date date="2021-04-09" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-04-16" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-04-23" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-04-30" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-05-07" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-05-14" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-05-21" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-05-28" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-06-04" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-06-11" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-06-18" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-06-25" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-07-02" begin="15:45" end="17:15"></activity-date>
+    <activity-date date="2021-07-09" begin="15:45" end="17:15"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H404</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Holke, T.</activity-staff>
+    <activity-staff>Perlick, O.</activity-staff>
+    <activity-staff>Rapp, S.</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-INF-B2K1</activity-student-set>
+    <activity-student-set>Is-INF-B2K3</activity-student-set>
+    <activity-student-set>Is-INF-B2L1</activity-student-set>
+    <activity-student-set>Is-INF-B2L4</activity-student-set>
+    <activity-student-set>Is-INF-B4E1</activity-student-set>
+    <activity-student-set>Is-INF-B4E2</activity-student-set>
+    <activity-student-set>Is-INF-B4F1</activity-student-set>
+    <activity-student-set>Is-INF-B4F2</activity-student-set>
+    <activity-student-set>Is-INF-B4G1</activity-student-set>
+    <activity-student-set>Is-INF-B4G3</activity-student-set>
+    <activity-student-set>Is-INF-B8D1</activity-student-set>
+    <activity-student-set>Is-INF-BJ-DB1</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-13 09:30:54">
+   <name>Internet-Technologien</name>
+   <hostkey semesterjahr="SS2021">#SPLUSF08747</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-04-23" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-04-30" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-05-07" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-05-14" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-05-21" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-05-28" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-06-04" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-06-11" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-06-18" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-06-25" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-07-02" begin="12:00" end="13:30"></activity-date>
+    <activity-date date="2021-07-09" begin="12:00" end="13:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H409</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Dr&ouml;lle</activity-staff>
+    <activity-staff>Gawron, C.</activity-staff>
+    <activity-staff>Schmidt, S.2</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-INF-B4C1</activity-student-set>
+    <activity-student-set>Is-INF-B4C2</activity-student-set>
+    <activity-student-set>Is-INF-B4C3</activity-student-set>
+    <activity-student-set>Is-INF-B4C4</activity-student-set>
+    <activity-student-set>Is-INF-B4C5</activity-student-set>
+    <activity-student-set>Is-INF-B4C6</activity-student-set>
+    <activity-student-set>Is-INF-B4C7</activity-student-set>
+    <activity-student-set>Is-INF-B4G1</activity-student-set>
+    <activity-student-set>Is-INF-B4G2</activity-student-set>
+    <activity-student-set>Is-INF-B4G3</activity-student-set>
+    <activity-student-set>Is-INF-B4H1</activity-student-set>
+    <activity-student-set>Is-INF-B6B1</activity-student-set>
+    <activity-student-set>Is-INF-B6C1</activity-student-set>
+    <activity-student-set>Is-INF-B6C2</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-04-13 09:30:54">
+   <name>Internet-Technologien</name>
+   <hostkey semesterjahr="SS2021">#SPLUSF08749</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-04-23" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-04-30" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-07" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-14" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-21" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-05-28" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-04" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-11" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-18" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-06-25" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-07-02" begin="14:00" end="15:30"></activity-date>
+    <activity-date date="2021-07-09" begin="14:00" end="15:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H404</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Dr&ouml;lle</activity-staff>
+    <activity-staff>Gawron, C.</activity-staff>
+    <activity-staff>Schmidt, S.2</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-INF-B4C8</activity-student-set>
+    <activity-student-set>Is-INF-B4CA</activity-student-set>
+    <activity-student-set>Is-INF-B4CB</activity-student-set>
+    <activity-student-set>Is-INF-B4CC</activity-student-set>
+    <activity-student-set>Is-INF-B4CD</activity-student-set>
+    <activity-student-set>Is-INF-B4E2</activity-student-set>
+    <activity-student-set>Is-INF-B4E3</activity-student-set>
+    <activity-student-set>Is-INF-B4E4</activity-student-set>
+    <activity-student-set>Is-INF-B4F1</activity-student-set>
+    <activity-student-set>Is-INF-B4F2</activity-student-set>
+    <activity-student-set>Is-INF-B4F3</activity-student-set>
+    <activity-student-set>Is-INF-B4F4</activity-student-set>
+    <activity-student-set>Is-INF-B4H2</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2021-03-22 11:32:44">
+   <name>IT-Projektmanagement</name>
+   <hostkey semesterjahr="SS2021">#SPLUSF08756</hostkey>
+   <activity-type short="P">Praktikum</activity-type>
+   <description>via Zoom</description>
+   <activity-dates>
+    <activity-date date="2021-04-16" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-23" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-04-30" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-07" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-14" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-21" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-05-28" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-04" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-11" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-18" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-06-25" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-07-02" begin="08:00" end="09:30"></activity-date>
+    <activity-date date="2021-07-09" begin="08:00" end="09:30"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H409</activity-location>
+   </activity-locations>
+   <activity-staffs>
+    <activity-staff>Faulstich</activity-staff>
+    <activity-staff>Holke, T.</activity-staff>
+    <activity-staff>H&uuml;hne</activity-staff>
+   </activity-staffs>
+   <activity-student-sets>
+    <activity-student-set>Is-INF-B4CA</activity-student-set>
+    <activity-student-set>Is-INF-B4CB</activity-student-set>
+    <activity-student-set>Is-INF-B4CC</activity-student-set>
+    <activity-student-set>Is-INF-B4CD</activity-student-set>
+    <activity-student-set>Is-INF-B4E1</activity-student-set>
+    <activity-student-set>Is-INF-B4E2</activity-student-set>
+    <activity-student-set>Is-INF-B4E3</activity-student-set>
+    <activity-student-set>Is-INF-B4E4</activity-student-set>
+    <activity-student-set>Is-INF-B4G1</activity-student-set>
+    <activity-student-set>Is-INF-B4H2</activity-student-set>
+    <activity-student-set>Is-INF-B6C5</activity-student-set>
+    <activity-student-set>Is-INF-B6C6</activity-student-set>
+   </activity-student-sets>
+  </activity>
+  <activity lastchange="2020-12-09 19:01:22">
+   <name>Deutschkurs C1</name>
+   <hostkey semesterjahr="SS2021">#SPLUSF65439</hostkey>
+   <activity-type short="Schulung">Schulung</activity-type>
+   <description></description>
+   <activity-dates>
+    <activity-date date="2021-04-02" begin="13:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-09" begin="13:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-16" begin="13:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-23" begin="13:00" end="18:00"></activity-date>
+    <activity-date date="2021-04-30" begin="13:00" end="18:00"></activity-date>
+    <activity-date date="2021-05-07" begin="13:00" end="18:00"></activity-date>
+   </activity-dates>
+   <activity-locations>
+    <activity-location>Is-H206</activity-location>
+   </activity-locations>
+   <activity-staffs>
+   </activity-staffs>
+   <activity-student-sets>
+   </activity-student-sets>
+  </activity>
+ </activities>
+</vpis-response>
+<!--/Template veranstaltungen.2009-01.tpl.xml -->
