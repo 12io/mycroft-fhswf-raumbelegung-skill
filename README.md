@@ -1,0 +1,1 @@
+# mycroft-fhswf-raumbelegung-skill
