@@ -2,7 +2,7 @@ import re
 import requests
 import xml.etree.ElementTree as ET
 from datetime import date
-from adapt.intetn import IntentBuilder
+from adapt.intent import IntentBuilder
 from mycroft import MycroftSkill, intent_handler
 
 locationMap = {'Is': 'Iserlohn', 'Ha': 'Hagen', 'Ls': 'Lüdenscheid', 'Me': 'Meschede', 'So': 'Soest', 'Z': 'Hagen IAH'}
