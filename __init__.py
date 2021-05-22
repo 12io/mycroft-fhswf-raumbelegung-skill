@@ -137,7 +137,5 @@ class FhRoomOccupancySkill(MycroftSkill):
     def handleRoomOccupation(self, message):
         self.log.info(str(message))
 
-    )
-
 def create_skill():
     return FhRoomOccupancySkill()
