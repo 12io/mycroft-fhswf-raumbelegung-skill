@@ -125,10 +125,19 @@ class FhRoomOccupancySkill(MycroftSkill):
     def __initialize__(self):
         self.register_entity_file('day.entity')
         self.register_entity_file('location.entity')
+        self.log.info('FhRoomOccupancySkill initialized.')
+
+    @intent_handler('fhswf.intent')
+    def handleFhSwfIntent(self, message):
+        utterance = message.data.get('utterance')
+        self.log.debug('NOW INT fhswf.intent')
+        self.log.debug(str(message))
 
     @intent_handler('what.does.take.place.in.x.intent')
     def handleRoomOccupation(self, message):
         self.log.info(str(message))
+
+    )
 
 def create_skill():
     return FhRoomOccupancySkill()
