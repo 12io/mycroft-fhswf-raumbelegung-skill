@@ -1,0 +1,17 @@
+{
+    "skillMetadata": {
+        "sections": [
+            {
+                "name": "VPIS API Endpoint URL",
+                "fields": [
+                    {
+                        "name": "vpis_api_endpoint_url",
+                        "type": "text",
+                        "label": "Enter VPIS API Endpoint URL",
+                        "value": "https://vpis.fh-swf.de/vpisapp.php"
+                    }
+                ]
+            }
+        ]
+    }
+}
