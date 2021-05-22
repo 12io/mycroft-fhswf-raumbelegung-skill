@@ -69,7 +69,7 @@ class FhRoomOccupancySkill(MycroftSkill):
         super(FhRoomOccupancySkill, self).__init__(name="FhRoomOccupancySkill")
     
     def __initialize__(self):
-        self.speak("Hallo, ich bin der FhRoomOccupancySkill, oder auch zu Deutsch: FhRaumbelegungsSkill")
+        self.speak_dialog("ready")
 
 def create_skill():
     return FhRoomOccupancySkill()
