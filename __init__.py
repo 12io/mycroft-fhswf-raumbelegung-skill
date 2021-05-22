@@ -129,7 +129,7 @@ class FhRoomOccupancySkill(MycroftSkill):
 
     @intent_handler('fhswf-help.intent')
     def handleFhSwfIntent(self, message):
-        self.speak_dialog('fhswf.dialog')
+        self.speak_dialog('fhswf')
 
     @intent_handler('what.does.take.place.in.x.intent')
     def handleRoomOccupation(self, message):
