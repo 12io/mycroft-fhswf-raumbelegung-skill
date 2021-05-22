@@ -127,7 +127,7 @@ class FhRoomOccupancySkill(MycroftSkill):
         self.register_entity_file('location.entity')
         self.log.info('FhRoomOccupancySkill initialized.')
 
-    @intent_handler('help.intent')
+    @intent_handler('fhswf-help.intent')
     def handleFhSwfIntent(self, message):
         self.speak_dialog('fhswf.dialog')
 
