@@ -128,8 +128,7 @@ class FhRoomOccupancySkill(MycroftSkill):
 
     @intent_handler('what.does.take.place.in.x.intent')
     def handleRoomOccupation(self, message):
-        
-        
+        self.log.info(str(message))
 
 def create_skill():
     return FhRoomOccupancySkill()
