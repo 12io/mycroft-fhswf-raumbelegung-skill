@@ -204,10 +204,8 @@ class FhRoomOccupancySkill(MycroftSkill):
     # Padatious
     @intent_handler('tell.me.about.this.skill.intent')
     def tellMeAbout(self, message):
-        print('print(\'NOW IN TELL ME ABOUT THIS SKILL INTENT\')')
-        print(message)
-        log.debug('NOW IN TELL ME ABOUT THIS SKILL INTENT')
-        log.debug(message)
+        self.log.debug('NOW IN TELL ME ABOUT THIS SKILL INTENT')
+        self.log.debug(message.serialize())
         self.speak_dialog('you.can.ask.me.about.rooms.and.courses')
         
     @intent_handler('how.do.i.query.for.a.room.intent')
