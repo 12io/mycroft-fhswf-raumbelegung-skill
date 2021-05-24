@@ -199,6 +199,17 @@ class FhRoomOccupancySkill(MycroftSkill):
     def __initialize__(self):
         self.register_entity_file('day.entity')
         self.register_entity_file('location.entity')
+        self.log.info('Fetching room list')
+        self.getRoomsByLocation = getRoomsByLocations()
+        self.log.info(self.file_system.path)
+        #if not self.getRoomsByLocation:
+        #    self.log.error('No room entities. Skill my not function properly!')
+        #else:
+
+        #    for 
+        self.log.info('Generating rooms.entity')
+
+
         self.log.info('FhRoomOccupancySkill initialized.')
 
     # Padatious
