@@ -215,6 +215,7 @@ class FhRoomOccupancySkill(MycroftSkill):
                     for roomNr in _:
                         entityFile.writelines(roomNr + '\n')
                 entityFile.close()
+                self.register_entity_file('room.entity')
 
         self.log.info('FhRoomOccupancySkill initialized.')
 
