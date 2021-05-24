@@ -227,7 +227,6 @@ class FhRoomOccupancySkill(MycroftSkill):
     @intent_handler('how.do.i.query.for.a.room.intent')
     def handleHowDoIqueryAroom(self, message):
         self.log.info(message.serialize())
-        self.log.info(message.data())
         self.speak_dialog('for.example.you.can.ask.me')
         self.speak_dialog('this.is.how.you.query.for.a.room')
 
