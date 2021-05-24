@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 from datetime import date
 from multi_key_dict import multi_key_dict
 from mycroft import MycroftSkill, intent_handler
-from os import mkdir
+from os import listdir, mkdir
 from os.path import join
 
 VPIS_FALLBACK_URL='https://vpis.fh-swf.de/vpisapp.php'
@@ -16,7 +16,7 @@ fhswfLocationMap['lüdenscheid', 'luedenscheid', 'ls', 'bahnhofsallee', 'campus 
 fhswfLocationMap['meschede', 'me', 'lindenstrasse','lindenstraße','linden straße','linden strasse','linden str', 'campus meschede'] = 'Meschede'
 fhswfLocationMap['soest', 'so', 'lübecker ring', 'luebecker ring', 'campus soest'] = 'Soest'
 # location "Im Alten Holz" seems to be invalid for API
-fhswfLocationMap['im alten holz', 'hagen iah', 'ha iah', 'hagen im alten holz'] = 'Hagen IAH'
+# fhswfLocationMap['im alten holz', 'hagen iah', 'ha iah', 'hagen im alten holz'] = 'Hagen IAH'
 
 fhswfLocationVpisShortKey = {'Iserlohn': 'Is', 'Hagen': 'Ha', 'Lüdenscheid': 'Ls', 'Meschede': 'Me', 'Soest': 'So' } #, 'Hagen IAH': 'Z'}
 
@@ -196,19 +196,25 @@ class FhRoomOccupancySkill(MycroftSkill):
     def __init__(self):
         super(FhRoomOccupancySkill, self).__init__(name="FhRoomOccupancySkill")
     
-    def __initialize__(self):
+    def initialize(self):
         self.register_entity_file('day.entity')
         self.register_entity_file('location.entity')
+        
+        # We need to build our room.entity "dynamically" here (building a list from vpis rooms)
+        # and register afterwards
         self.log.info('Fetching room list')
         self.getRoomsByLocation = getRoomsByLocations()
-        self.log.info(self.file_system.path)
-        #if not self.getRoomsByLocation:
-        #    self.log.error('No room entities. Skill my not function properly!')
-        #else:
-
-        #    for 
-        self.log.info('Generating rooms.entity')
-
+        if not self.getRoomsByLocation:
+            self.log.error('No room entities. Skill my not function properly!')
+        else:
+            self.log.info('Generating room.entity for every locale')
+            
+            for localeDir in listdir(join(self.root_dir, 'locale')):
+                entityFile = open(join(self.root_dir, 'locale', localeDir, 'room.entity'), 'w')
+                for locationS in roomNames.values():
+                    for roomNr in locationS:
+                        entityFile.writelines(roomNr + '\n')
+                entityFile.close()
 
         self.log.info('FhRoomOccupancySkill initialized.')
 
