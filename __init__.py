@@ -230,5 +230,10 @@ class FhRoomOccupancySkill(MycroftSkill):
         self.speak_dialog('for.example.you.can.ask.me')
         self.speak_dialog('this.is.how.you.query.for.a.room')
 
+    @intent_handler('what.does.take.place.in.room.x.intent'):
+    def handleWhatDoesTakePlaceIn(self, message):
+        self.log.info(message.serialize())
+        self.speak('Ich hoffe du kannst mit der Ausgabe etwas anfangen.')
+
 def create_skill():
     return FhRoomOccupancySkill()
