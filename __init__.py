@@ -211,8 +211,8 @@ class FhRoomOccupancySkill(MycroftSkill):
             
             for localeDir in listdir(join(self.root_dir, 'locale')):
                 entityFile = open(join(self.root_dir, 'locale', localeDir, 'room.entity'), 'w')
-                for locationS in roomNames.values():
-                    for roomNr in locationS:
+                for _ in self.getRoomsByLocation.values():
+                    for roomNr in _:
                         entityFile.writelines(roomNr + '\n')
                 entityFile.close()
 
