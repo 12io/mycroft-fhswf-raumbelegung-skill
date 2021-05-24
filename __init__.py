@@ -205,7 +205,7 @@ class FhRoomOccupancySkill(MycroftSkill):
         self.log.info('Fetching room list')
         self.getRoomsByLocation = getRoomsByLocations()
         if not self.getRoomsByLocation:
-            self.log.error('No room entities. Skill my not function properly!')
+            self.log.error('No room entities. Skill may not function properly!')
         else:
             self.log.info('Generating room.entity for every locale')
             
@@ -221,14 +221,15 @@ class FhRoomOccupancySkill(MycroftSkill):
     # Padatious
     @intent_handler('tell.me.about.this.skill.intent')
     def tellMeAbout(self, message):
-        self.log.debug('NOW IN TELL ME ABOUT THIS SKILL INTENT')
-        self.log.debug(message.serialize())
+        self.log.info(message.serialize())
+        self.log.info(message.data())
         self.speak_dialog('you.can.ask.me.about.rooms.and.courses')
         
     @intent_handler('how.do.i.query.for.a.room.intent')
     def handleHowDoIqueryAroom(self, message):
-        self.log.debug(message)
-        self.speak('Du könntest mich zum Beispiel folgendes fragen:')
+        self.log.info(message.serialize())
+        self.log.info(message.data())
+        self.speak_dialog('for.example.you.can.ask.me')
         self.speak_dialog('this.is.how.you.query.for.a.room')
 
 def create_skill():
