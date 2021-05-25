@@ -236,7 +236,7 @@ class FhRoomOccupancySkill(MycroftSkill):
                 entityFile = open(join(self.root_dir, 'locale', localeDir, 'room.entity'), 'w')
                 for _ in self.roomsByLocation.values():
                     if not _:
-                        self.translate('no.rooms.for.location.x', {'location': locationMap[_.lower()]})
+                        self.translate('no.rooms.for.location.x', {'location': fhswfLocationMap[_.lower()]})
                         continue
                     for roomNr in _:
                         entityFile.writelines(roomNr.lower() + '\n')
@@ -256,7 +256,7 @@ class FhRoomOccupancySkill(MycroftSkill):
                 entityFile = open(join(self.root_dir, 'locale', localeDir, 'course.entity'), 'w')
                 for _ in self.coursesByLocation.values():
                     if not _:
-                        self.translate('no.courses.for.location.x', {'location': locationMap[_.lower()]})
+                        self.translate('no.courses.for.location.x', {'location': fhswfLocationMap[_.lower()]})
                         continue
                     for courseName in _:
                         entityFile.writelines(courseName.lower() + '\n')
