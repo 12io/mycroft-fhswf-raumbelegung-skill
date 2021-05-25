@@ -232,16 +232,17 @@ class FhRoomOccupancySkill(MycroftSkill):
         else:
             self.log.info('Generating room.entity for every locale')
             
-            for localeDir in listdir(join(self.root_dir, 'locale')):
-                entityFile = open(join(self.root_dir, 'locale', localeDir, 'room.entity'), 'w')
-                for _ in self.roomsByLocation.values():
-                    if not _:
-                        self.translate('no.rooms.for.location.x', {'location': fhswfLocationMap[_.lower()]})
-                        continue
-                    for roomNr in _:
-                        entityFile.writelines(roomNr.lower() + '\n')
+            
+            for _ in self.roomsByLocation.values():
+                if not _:
+                    self.translate('no.rooms.for.location.x', {'location': fhswfLocationMap[_.lower()]})
+                    continue
+                for localeDir in listdir(join(self.root_dir, 'locale')):
+                        entityFile = open(join(self.root_dir, 'locale', localeDir, 'room.entity'), 'a')
+                        for roomNr in _:
+                            entityFile.writelines(roomNr.lower() + '\n')
                 entityFile.close()
-                self.register_entity_file('room.entity')
+            self.register_entity_file('room.entity')
 
         self.log.info('Fetching course entities...')
         self.coursesByLocation = getCoursesByLocation()
@@ -252,23 +253,23 @@ class FhRoomOccupancySkill(MycroftSkill):
         else:
             self.log.info('Generating course.entity for every locale')
             
-            for localeDir in listdir(join(self.root_dir, 'locale')):
-                entityFile = open(join(self.root_dir, 'locale', localeDir, 'course.entity'), 'w')
-                for _ in self.coursesByLocation.values():
-                    if not _:
-                        self.translate('no.courses.for.location.x', {'location': fhswfLocationMap[_.lower()]})
-                        continue
-                    for courseName in _:
+            for _ in self.coursesByLocation.keys():
+                if not self.coursesByLocation[_]:
+                    print("no.courses.for.location.x' \{'location':" + fhswfLocationMap[_.lower()] + "\}")
+                    continue
+                for localeDir in listdir(join(self.root_dir, 'locale')):
+                    entityFile = open(join(self.root_dir, 'locale', localeDir, 'course.entity'), 'a')
+                    for courseName in self.coursesByLocation[_]:
                         entityFile.writelines(courseName.lower() + '\n')
                 entityFile.close()
-                self.register_entity_file('course.entity')
+            self.register_entity_file('course.entity')
 
         self.log.info('FhRoomOccupancySkill initialized.')
         self.speak_dialog('loaded')
 
     # Padatious
     @intent_handler('tell.me.about.this.skill.intent')
-    def tellMeAbout(self, message):
+    def tellMeAboutThisSkill(self, message):
         self.log.info(message.serialize())
         self.speak_dialog('you.can.ask.me.about.rooms.and.courses')
         
@@ -281,11 +282,16 @@ class FhRoomOccupancySkill(MycroftSkill):
     @intent_handler('what.does.take.place.in.room.x.intent')
     def handleWhatDoesTakePlaceIn(self, message):
         self.log.info(message.serialize())
-        self.log.info(message.data.get('room'))
-        self.log.info(message.data.get('location'))
-        self.speak('Ich hoffe du kannst mit der Ausgabe etwas anfangen.')
-        self.speak(message.data.get('room'))
-        self.speak(message.data.get('location'))
 
+    @intent_handler('how.do.i.query.for.a.course.intent')
+    def handleHowDoIqueryAroom(self, message):
+        self.log.info(message.serialize())
+        self.speak_dialog('for.example.you.can.ask.me')
+        self.speak_dialog('this.is.how.you.query.for.a.course')
+    
+    @intent_handler('when.and.where.takes.x.place.intent'):
+    def handleWhereDoesTakePlace(self, message):
+        self.log.info(message.serialize())
+        
 def create_skill():
     return FhRoomOccupancySkill()
