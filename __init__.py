@@ -1,6 +1,7 @@
 import re
 import requests
 import xml.etree.ElementTree as ET
+from bs4 import BeautifulSoup
 from datetime import date
 from multi_key_dict import multi_key_dict
 from mycroft import MycroftSkill, intent_handler
