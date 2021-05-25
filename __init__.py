@@ -7,7 +7,10 @@ from mycroft import MycroftSkill, intent_handler
 from os import listdir, mkdir
 from os.path import join
 
-VPIS_FALLBACK_URL='https://vpis.fh-swf.de/vpisapp.php'
+VPIS_BASE_URL = 'https://vpis.fh-swf.de'
+VPIS_CONTROL_URL = VPIS_BASE_URL + '/vpisapp.php'
+# location = path after base url ;SEMESTER; is used here as a variable.
+VPIS_COURSES_URL_LOCATION = '/;SEMESTER;/faecherangebotplanung.php3'
 
 fhswfLocationMap = multi_key_dict()
 fhswfLocationMap['iserlohn', 'is', 'frauenstuhlweg','frauenstuhl weg', 'campus iserlohn'] = 'Iserlohn'
@@ -20,7 +23,7 @@ fhswfLocationMap['soest', 'so', 'lübecker ring', 'luebecker ring', 'campus soes
 
 fhswfLocationVpisShortKey = {'Iserlohn': 'Is', 'Hagen': 'Ha', 'Lüdenscheid': 'Ls', 'Meschede': 'Me', 'Soest': 'So' } #, 'Hagen IAH': 'Z'}
 
-def getVPISActivities(location, semester = None, day = None, url = VPIS_FALLBACK_URL):
+def getVPISActivities(location, semester = None, day = None):
     """Queries VPIS for ooccupied rooms.
 
     Parameters
@@ -37,9 +40,6 @@ def getVPISActivities(location, semester = None, day = None, url = VPIS_FALLBACK
         Optional. VPIS API always uses current day. But if given, we append it to the request url
         to get the data for a specific day.
     
-    url: string, default = VPIS_FALLBACK_URL
-        Optional. Can be used to override VPIS API url. Change it in settingsmeta.json of this Skill.
-
     Returns
     -------
     occupiedRooms: { <roomNumber>: { <day>: { <time>: { <activityName>: }{}}}}}
@@ -82,10 +82,7 @@ def getVPISActivities(location, semester = None, day = None, url = VPIS_FALLBACK
     if not location in fhswfLocationMap:
         raise AttributeError('Invalid parameter: location')
 
-    if not url:
-        url = VPIS_FALLBACK_URL
-
-    vpisControlResponse = requests.get(url)
+    vpisControlResponse = requests.get(VPIS_CONTROL_URL)
         
     if not vpisControlResponse.status_code == 200:
         raise RuntimeError('Could not connect to VPIS: HTTP status code ' + str(vpisControlResponse.status_code))
@@ -160,7 +157,7 @@ def getVPISActivities(location, semester = None, day = None, url = VPIS_FALLBACK
         
     return occupiedRooms, courses
 
-def getRoomsByLocations(url = VPIS_FALLBACK_URL):
+def getRoomsByLocation(url = VPIS_CONTROL_URL):
     vpisControlResponse = requests.get(url)
     if not vpisControlResponse.status_code == 200:
         raise RuntimeError("Connect to " + url + " failed. HTTP response code: " + vpisControlResponse.status_code)
@@ -192,6 +189,29 @@ def getRoomsByLocations(url = VPIS_FALLBACK_URL):
                 roomNumbersByLocation[locationName].append(roomWithoutLocationPrefix)
     return roomNumbersByLocation
 
+def getCoursesByLocation():
+    overallCoursesByLocation = {}
+    today = date.today()
+    
+    for locationKey in fhswfLocationVpisShortKey.values():
+        urlLocations = [ re.sub(';SEMESTER;', 'SS' + str(today.year), VPIS_COURSES_URL_LOCATION), re.sub(';SEMESTER;', 'WS' + str(today.year), VPIS_COURSES_URL_LOCATION) ]
+        
+        for urlLocation in urlLocations:
+            url = VPIS_BASE_URL + urlLocation
+            site = requests.get(url, params = {'Fachbereich': locationKey, 'sort': 'fachname', 'Template': 'None'})
+            print(site.url)
+            if not site.status_code == 200:
+                continue
+            
+            overallCoursesByLocation[locationKey] = []
+            site = BeautifulSoup(site.text)
+            courseTags = site.findAll("span", {"style": "white-space:nowrap;"})
+            
+            for courseTag in courseTags:
+                overallCoursesByLocation[locationKey].append(str(courseTag.text))
+    
+    return overallCoursesByLocation
+
 class FhRoomOccupancySkill(MycroftSkill):
     def __init__(self):
         super(FhRoomOccupancySkill, self).__init__(name="FhRoomOccupancySkill")
@@ -202,22 +222,48 @@ class FhRoomOccupancySkill(MycroftSkill):
         
         # We need to build our room.entity "dynamically" here (building a list from vpis rooms)
         # and register afterwards
-        self.log.info('Fetching room list')
-        self.getRoomsByLocation = getRoomsByLocations()
-        if not self.getRoomsByLocation:
+        self.log.info('Fetching room entities...')
+        self.roomsByLocation = getRoomsByLocation()
+        
+        if not self.roomsByLocation:
             self.log.error('No room entities. Skill may not function properly!')
+            self.speak_dialog('could.not.fetch.room.entitites')
         else:
             self.log.info('Generating room.entity for every locale')
             
             for localeDir in listdir(join(self.root_dir, 'locale')):
                 entityFile = open(join(self.root_dir, 'locale', localeDir, 'room.entity'), 'w')
-                for _ in self.getRoomsByLocation.values():
+                for _ in self.roomsByLocation.values():
+                    if not _:
+                        self.translate('no.rooms.for.location.x', {'location': locationMap[_.lower()]})
+                        continue
                     for roomNr in _:
-                        entityFile.writelines(roomNr + '\n')
+                        entityFile.writelines(roomNr.lower() + '\n')
                 entityFile.close()
                 self.register_entity_file('room.entity')
 
+        self.log.info('Fetching course entities...')
+        self.coursesByLocation = getCoursesByLocation()
+        
+        if not self.coursesByLocation:
+            self.log.error('No course entities. Skill may not function properly!')
+            self.speak_dialog('could.not.fetch.course.entitites')
+        else:
+            self.log.info('Generating course.entity for every locale')
+            
+            for localeDir in listdir(join(self.root_dir, 'locale')):
+                entityFile = open(join(self.root_dir, 'locale', localeDir, 'course.entity'), 'w')
+                for _ in self.coursesByLocation.values():
+                    if not _:
+                        self.translate('no.courses.for.location.x', {'location': locationMap[_.lower()]})
+                        continue
+                    for courseName in _:
+                        entityFile.writelines(courseName.lower() + '\n')
+                entityFile.close()
+                self.register_entity_file('course.entity')
+
         self.log.info('FhRoomOccupancySkill initialized.')
+        self.speak_dialog('loaded')
 
     # Padatious
     @intent_handler('tell.me.about.this.skill.intent')
@@ -231,10 +277,14 @@ class FhRoomOccupancySkill(MycroftSkill):
         self.speak_dialog('for.example.you.can.ask.me')
         self.speak_dialog('this.is.how.you.query.for.a.room')
 
-    @intent_handler('what.does.take.place.in.room.x.intent'):
+    @intent_handler('what.does.take.place.in.room.x.intent')
     def handleWhatDoesTakePlaceIn(self, message):
         self.log.info(message.serialize())
+        self.log.info(message.data.get('room'))
+        self.log.info(message.data.get('location'))
         self.speak('Ich hoffe du kannst mit der Ausgabe etwas anfangen.')
+        self.speak(message.data.get('room'))
+        self.speak(message.data.get('location'))
 
 def create_skill():
     return FhRoomOccupancySkill()
