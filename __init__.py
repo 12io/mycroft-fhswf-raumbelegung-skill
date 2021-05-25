@@ -231,8 +231,6 @@ class FhRoomOccupancySkill(MycroftSkill):
             self.speak_dialog('could.not.fetch.room.entitites')
         else:
             self.log.info('Generating room.entity for every locale')
-            
-            
             for _ in self.roomsByLocation.values():
                 if not _:
                     self.translate('no.rooms.for.location.x', {'location': fhswfLocationMap[_.lower()]})
@@ -289,7 +287,7 @@ class FhRoomOccupancySkill(MycroftSkill):
         self.speak_dialog('for.example.you.can.ask.me')
         self.speak_dialog('this.is.how.you.query.for.a.course')
     
-    @intent_handler('when.and.where.takes.x.place.intent'):
+    @intent_handler('when.and.where.takes.x.place.intent')
     def handleWhereDoesTakePlace(self, message):
         self.log.info(message.serialize())
         

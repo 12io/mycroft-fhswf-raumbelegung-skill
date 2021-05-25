@@ -2,12 +2,12 @@ heute
 morgen
 gestern
 n(ae|ä)chste Woche
-(?(?über)nächsten) montag (?vor (?einer|zwei) woche(?n)
-(?(?über)nächsten) dienstag
-(?(?über)nächsten) mittwoch
-(?(?über)nächsten) donnerstag
-(?(?über)nächsten) freitag
-(?(?über)nächsten) samstag
-(?(?über)nächsten) sonntag
+((über)nächsten) montag (vor (einer|zwei) woche(n)
+((über)nächsten) dienstag
+((über)nächsten) mittwoch
+((über)nächsten) donnerstag
+((über)nächsten) freitag
+((über)nächsten) samstag
+((über)nächsten) sonntag
 ##.##.####
 ##.(januar|februar|m(ae|ä)rz|april|mai|juni|juli|august|september|oktober|november|dezember)
