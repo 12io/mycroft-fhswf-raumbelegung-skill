@@ -414,7 +414,7 @@ class FhSwfRoomQuerySkill(MycroftSkill):
             self.speak_dialog('following.courses.take.place.in.room.x', {'room': roomEntity})
             for courseTimeBegin in occupiedRooms[roomEntity][dayEntity]:
                 for courseName in occupiedRooms[roomEntity][dayEntity][courseTimeBegin]:
-                    self.speak_dialog('course.x.takes.place.in.room.y', {'time':courseTimeBegin, 'course': courseName, 'courseType': occupiedRooms[roomEntity][dayEntity][courseTimeBegin]['type'], 'courseEndTime':occupiedRooms[roomEntity][dayEntity][courseTimeBegin]['end']})
+                    self.speak_dialog('course.x.takes.place.in.room.y', {'time':courseTimeBegin, 'course': courseName, 'courseType': occupiedRooms[roomEntity][dayEntity][courseTimeBegin][courseName]['type'], 'courseEndTime':occupiedRooms[roomEntity][dayEntity][courseTimeBegin][courseName]['end']})
         else:
             self.log.info("Query Failed line 299")
             self.speak_dialog('room.not.found', {'room': roomEntity})
@@ -476,7 +476,6 @@ class FhSwfRoomQuerySkill(MycroftSkill):
         """TODO implement functionality to answer a time.
         Until implementation, speaks a sentence that it is not implemented yet.
         """
-
         self.speak_dialog('not.implemented.yet')
 
     def stop(self):
