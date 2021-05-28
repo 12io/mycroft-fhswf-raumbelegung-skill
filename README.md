@@ -1,7 +1,11 @@
 # <img src="https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/calendar-alt.svg" card_color="#39659F" width="50" height="50" style="vertical-align:bottom"/>Mycroft FHSWF Raumbelegung
-Lässt Mycroft Fragen bezüglich des Raumbelegungsplans vom VPIS beantworten.
+Dieser Skill ist als Teil der Bachelorarbeit von [Silvio Marra](https://github.com/12io) entstanden und lässt Mycroft Fragen über die Raumbelegung des Plans aus dem [VPIS](https://vpis.fh-swf.de/) beantworten.
 
 ## Über den Skill
+_Damit der Skill auch nach Bedarf in andere Sprachen übersetzt werden kann, ist die Implementierung auf englisch gehalten. Das bezieht sich sowohl auf die Namensgebung der Dateien in den sprachabhängigen Unterordnern von ./locale sowie die Variablennamen und Kommentare im Quellcode._
+
+_To provide multiple languages if needed, implementation is done in english. This includes all names of files inside language-based subdirectories as well as variables and comments of source code._
+
 Der Skill implementiert neue Intentionen, die im Zusammenhang mit dem Raumbelegungsplan der Fachhochschule Südwestfalen stehen.
 Für jede Intention gibt Mycroft eine passende Antwort wider. Für die Belegung eines Raumes wäre das zum Beispiel eine Liste von Veranstaltungen die an dem aktuellen Tag dort stattfinden, oder für die Nachfrage wo eine Veranstaltung stattfindet eine Raumliste.
 
