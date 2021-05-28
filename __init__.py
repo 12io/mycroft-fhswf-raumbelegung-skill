@@ -386,8 +386,12 @@ class FhRoomOccupancySkill(MycroftSkill):
         
         return 0
 
-        def stop(self):
-            pass
-        
+    # query for when a course takes place
+    @intent_handler('when.does.course.x.take.place.intent')
+    def handleWhenDoesCourseTakePlace(self, message):
+        self.speak_dialog('not.implemented.yet')
+
+    def stop(self):
+        pass
 def create_skill():
     return FhRoomOccupancySkill()
