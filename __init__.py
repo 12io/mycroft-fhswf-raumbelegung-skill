@@ -8,6 +8,9 @@ from mycroft import MycroftSkill, intent_handler
 from os import listdir, mkdir
 from os.path import join
 
+# change this variable to set a Skill name that does not sound strange in your used language:
+SKILL_NAME='FH SWF Raumbelegung'
+
 VPIS_BASE_URL = 'https://vpis.fh-swf.de'
 VPIS_CONTROL_URL = VPIS_BASE_URL + '/vpisapp.php'
 # location = path after base url ;SEMESTER; is used here as a variable.
@@ -294,9 +297,9 @@ def getCoursesByLocation():
     
     return overallCoursesByLocation
 
-class FhRoomOccupancySkill(MycroftSkill):
+class FhSwfRoomQuerySkill(MycroftSkill):
     def __init__(self):
-        super(FhRoomOccupancySkill, self).__init__(name="FhRoomOccupancySkill")
+        super(FhSwfRoomQuerySkill, self).__init__(name=SKILL_NAME)
     
     def initialize(self):
         self.register_entity_file('location.entity')
@@ -474,4 +477,4 @@ class FhRoomOccupancySkill(MycroftSkill):
     def stop(self):
         pass
 def create_skill():
-    return FhSwfRaumbelegungSkill()
+    return FhSwfRoomQuerySkill()
