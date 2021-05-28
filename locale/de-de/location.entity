@@ -1,13 +1,17 @@
-campus (iserlohn|hagen|soest|meschede|lüdenscheid)
+campus iserlohn
+campus hagen
+campus soest
+campus meschede
+campus lüdenscheid
 iserlohn
 frauenstuhlweg
-baarstr(a(ss|ß|sz)e)
+baarstraße
 hagen
 im alten holz
-haldener str(a(ss|ß|sz)e)
+haldener straße
 lüdenscheid
 bahnhofsallee
 meschede
-lindenstr(a(ss|ß|sz)e)
+lindenstraße
 soest
 lübecker ring

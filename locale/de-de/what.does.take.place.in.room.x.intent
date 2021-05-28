@@ -1,3 +1,5 @@
-welche veranstaltungen sind i(n (dem)|m) (raum) {room} (in|am) {location}
-was findet i(n (dem)|m) (raum) {room} in {location} statt
-wie sieht der raumplan für {room} in {location} aus
+raumbelegung für (raum | ) {room} (in|am|an der | ) {location}
+welche veranstaltungen sind i(n (dem)|m) (raum | ) {room} (in|am|an der | ) {location}
+was findet i(n (dem)|m) (raum | ) {room} (in|am|an der | ) {location} statt
+wie sieht der aktuelle raumplan für (den raum | ) {room} (in|am|an der) {location} aus
+wie sieht die raumbelegung für (den raum | das | ) {room} (in|am|an der) {location} aus
