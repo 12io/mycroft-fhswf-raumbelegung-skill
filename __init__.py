@@ -349,6 +349,7 @@ class FhSwfRoomQuerySkill(MycroftSkill):
     def tellMeAboutThisSkill(self, message):
         """Explains how to use this skill if the user asks about how to use it.
         """
+
         self.log.info(message.serialize())
         self.speak_dialog('you.can.ask.me.about.rooms.and.courses')
         
@@ -356,6 +357,7 @@ class FhSwfRoomQuerySkill(MycroftSkill):
     def handleHowDoIqueryForAroom(self, message):
         """Speaks an example query on how to query for a specific room.
         """
+
         self.log.info(message.serialize())
         self.speak_dialog('for.example.you.can.ask.me')
         self.speak_dialog('this.is.how.you.query.for.a.room')
@@ -375,6 +377,7 @@ class FhSwfRoomQuerySkill(MycroftSkill):
     def handleWhatDoesTakePlaceIn(self, message):
         """Handles the query for occupancy of a room.
         """
+
         self.log.info(message.serialize())
         roomEntity = message.data.get('room')
         locationEntity = message.data.get('location')
@@ -423,6 +426,7 @@ class FhSwfRoomQuerySkill(MycroftSkill):
     def handleWhereDoesCourseTakePlace(self, message):
         """Handles queries about where a course takes place.
         """
+
         self.log.info(message.serialize())
         courseEntity = message.data.get('course')
         locationEntity = message.data.get('location')
@@ -468,13 +472,15 @@ class FhSwfRoomQuerySkill(MycroftSkill):
 
     # query for when a course takes place
     @intent_handler('when.does.course.x.take.place.intent')
-    """TODO implement functionality to answer a time.
-    Until implementation, speaks a sentence that it is not implemented yet.
-    """
     def handleWhenDoesCourseTakePlace(self, message):
+        """TODO implement functionality to answer a time.
+        Until implementation, speaks a sentence that it is not implemented yet.
+        """
+
         self.speak_dialog('not.implemented.yet')
 
     def stop(self):
         pass
+
 def create_skill():
     return FhSwfRoomQuerySkill()
