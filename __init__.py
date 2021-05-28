@@ -24,6 +24,13 @@ fhswfLocationMap['soest', 'so', 'lübecker ring', 'luebecker ring', 'campus soes
 
 fhswfLocationVpisShortKey = {'Iserlohn': 'Is', 'Hagen': 'Ha', 'Lüdenscheid': 'Ls', 'Meschede': 'Me', 'Soest': 'So' } #, 'Hagen IAH': 'Z'}
 
+def normalizeCourseString(string):
+    string = re.sub(r'[\(\)\:,]', r'', string)
+    string = re.sub(r'([\s]+\- )', r'', string)
+    string = re.sub(r'[/&]', r' und ', string)
+    string = re.sub(r'[\s]+', r' ', string)
+    return string.lower()
+
 def getVPISActivities(location, semester = None, day = None):
     """Queries VPIS for ooccupied rooms.
 
@@ -108,7 +115,6 @@ def getVPISActivities(location, semester = None, day = None):
         finalUrl += '&Tag=' + day
 
     vpisResponse = requests.get(finalUrl)
-
     if not vpisResponse.status_code == 200:
         raise RuntimeError('Could not connect to VPIS: HTTP status code ' + str(vpisResponse.status_code))
     elif not re.search('application/xml', vpisResponse.headers['content-type']):
@@ -122,7 +128,7 @@ def getVPISActivities(location, semester = None, day = None):
     # "for each course..."
     for activityXML in vpisResponseXml.findall('./activities/activity'):
         # ... save name, type, all dates(!) for this semester, all rooms(!) for this semester
-        courseName=activityXML.find('./name').text
+        courseName=normalizeCourseString(activityXML.find('./name').text)
         courseType=activityXML.find('./activity-type').text
         courseDates=activityXML.findall('./activity-dates/activity-date')
         courseRooms=activityXML.findall('./activity-locations/activity-location')
@@ -206,12 +212,18 @@ def getCoursesByLocation():
             if not site.status_code == 200:
                 continue
             
-            overallCoursesByLocation[locationKey] = []
+            if not locationKey in overallCoursesByLocation:
+                overallCoursesByLocation[locationKey] = []
             site = BeautifulSoup(site.text)
             courseTags = site.findAll("span", {"style": "white-space:nowrap;"})
             
             for courseTag in courseTags:
-                overallCoursesByLocation[locationKey].append(str(courseTag.text))
+                courseName = normalizeCourseString(str(courseTag.text))
+                overallCoursesByLocation[locationKey].append(courseName)
+    
+    # remove possible (equally written) duplicates:
+    for a in overallCoursesByLocation:
+        overallCoursesByLocation[a] = list(dict.fromkeys(overallCoursesByLocation[a]))
     
     return overallCoursesByLocation
 
@@ -220,11 +232,14 @@ class FhRoomOccupancySkill(MycroftSkill):
         super(FhRoomOccupancySkill, self).__init__(name="FhRoomOccupancySkill")
     
     def initialize(self):
+        self.register_entity_file('location.entity')
+        self.register_entity_file('day.entity')
+
         # We need to build our room.entity and course.entity "dynamically" here (fetching from vpis)
         # and register afterwards
         
+        # fetch rooms and build room.entity #
         self.roomsByLocation = getRoomsByLocation()
-        
         if not self.roomsByLocation:
              self.log.error('No room entities. Skill may not function properly!')
         else:
@@ -238,11 +253,28 @@ class FhRoomOccupancySkill(MycroftSkill):
                         roomEntityFile.writelines(roomNr + '\n')
                 roomEntityFile.close()
             self.register_entity_file('room.entity')
+        # end of room.entity building #
 
+        # fetch courses and build course.entity #
         self.coursesByLocation = getCoursesByLocation()
+        if not self.coursesByLocation:
+            self.log.error('No course entities. Skill may not function properly!')
+        else:
+            print('Generating course.entity for every locale')
+            for localeDir in listdir(join(self.root_dir, 'locale')):
+                    entityFile = open(join(self.root_dir, 'locale', localeDir, 'course.entity'), 'w')
+                    for courses in self.coursesByLocation.values():
+                        if not courses:
+                            continue
+                        for course in courses:
+                            entityFile.writelines(course.lower() + '\n')
+                    entityFile.close()
+            self.register_entity_file('course.entity')
+        # end of course.entity building #
+
         self.log.info('FhRoomOccupancySkill initialized.')
 
-    # Padatious
+    # intents for information about how to use this skill
     @intent_handler('tell.me.about.this.skill.intent')
     def tellMeAboutThisSkill(self, message):
         self.log.info(message.serialize())
@@ -253,7 +285,16 @@ class FhRoomOccupancySkill(MycroftSkill):
         self.log.info(message.serialize())
         self.speak_dialog('for.example.you.can.ask.me')
         self.speak_dialog('this.is.how.you.query.for.a.room')
+    
+    @intent_handler('how.do.i.query.for.a.course.intent')
+    def handleHowDoIqueryAroom(self, message):
+        self.log.info(message.serialize())
+        self.speak_dialog('for.example.you.can.ask.me')
+        self.speak_dialog('this.is.how.you.query.for.a.course')
 
+    # actual action intents #
+
+    # query for a room
     @intent_handler('what.does.take.place.in.room.x.intent')
     def handleWhatDoesTakePlaceIn(self, message):
         self.log.info(message.serialize())
@@ -262,11 +303,13 @@ class FhRoomOccupancySkill(MycroftSkill):
         dayEntity = message.data.get('day')
 
         if not locationEntity or locationEntity not in fhswfLocationMap:
-            locationEntity = self.get_response('at.which.location')
-            print('new location:' + str(locationEntity))
+            self.log.info("Asking for another location")
+            locationEntity = self.get_response('please.tell.me.where.to.look.for.x', {'queryString': roomEntity})
+            self.log.info("New location:{}".format(locationEntity))
         
         if not dayEntity:
             dayEntity = str(date.today().isoformat())
+            self.log.info("Set date to todays date:{}".format(dayEntity))
         
         try:    
             occupiedRooms, courses = getVPISActivities(locationEntity)
@@ -280,36 +323,71 @@ class FhRoomOccupancySkill(MycroftSkill):
             return 1
         elif not courses:
             self.log.info("Query Failed line 284")
-            self.speak_dialog('no.courses.found')
+            self.speak_dialog('course.not.found')
             return 1
         self.log.info("\"{}\" remove spaces ===> \"{}\"".format(roomEntity, roomEntity.replace(' ', '')))
         roomEntity = roomEntity.replace(' ', '')
         self.log.info(roomEntity)
 
-        self.log.info(raumnummer for raumnummer in occupiedRooms.keys())
-
         if roomEntity in occupiedRooms:
-            self.log.info("roomEntity ist in occupiedRooms")
-            self.speak_dialog('multiple.courses', {'room': roomEntity})
+            self.speak_dialog('following.courses.take.place.in.room.x', {'room': roomEntity})
             for courseTimeBegin in occupiedRooms[roomEntity][dayEntity]:
                 for courseName in occupiedRooms[roomEntity][dayEntity][courseTimeBegin]:
-                    self.speak_dialog('course.in.room', {'time':courseTimeBegin, 'course': courseName})
+                    self.speak_dialog('course.x.takes.place.in.room.y', {'time':courseTimeBegin, 'course': courseName, 'courseType': occupiedRooms[roomEntity][dayEntity][courseTimeBegin]['type'], 'courseEndTime':occupiedRooms[roomEntity][dayEntity][courseTimeBegin]['end']})
         else:
-            self.log.info("Query Failed line 294")
+            self.log.info("Query Failed line 299")
             self.speak_dialog('room.not.found', {'room': roomEntity})
         
         return 0
-        
 
-    # @intent_handler('how.do.i.query.for.a.course.intent')
-    # def handleHowDoIqueryAroom(self, message):
-    #     self.log.info(message.serialize())
-    #     self.speak_dialog('for.example.you.can.ask.me')
-    #     self.speak_dialog('this.is.how.you.query.for.a.course')
-    
-    # @intent_handler('when.and.where.takes.x.place.intent')
-    # def handleWhereDoesTakePlace(self, message):
-    #     self.log.info(message.serialize())
+    # query for a course
+    @intent_handler('where.does.course.x.take.place.intent')
+    def handleWhereDoesCourseTakePlace(self, message):
+        self.log.info(message.serialize())
+        courseEntity = message.data.get('course')
+        locationEntity = message.data.get('location')
+        dayEntity = message.data.get('day')
+        
+        if not locationEntity or locationEntity not in fhswfLocationMap:
+            self.log.info("Asking for another location")
+            locationEntity = self.get_response('please.tell.me.where.to.look.for.x', {'queryString': courseEntity})
+            self.log.info("New location:{}".format(locationEntity))
+
+        if not dayEntity:
+            dayEntity = str(date.today().isoformat())
+            self.log.info("Set date to todays date:{}".format(dayEntity))
+
+        try:    
+            occupiedRooms, courses = getVPISActivities(locationEntity)
+        except AttributeError as err:
+            self.speak_dialog('invalid.location', {'location': locationEntity})
+            return 1
+
+        if not occupiedRooms and not courses:
+            self.log.info("Query Failed line 367")
+            self.speak_dialog('no.courses.for.location.x', {'course': courseEntity, 'location': locationEntity})
+            return 1
+        
+        self.log.info('normalizeCourseString("{}")'.format(courseEntity))
+        courseEntity = normalizeCourseString(courseEntity)
+        self.log.info(courseEntity)
+        
+        if courseEntity in courses:
+            if dayEntity in courses[courseEntity]:
+                for room in courses[courseEntity][dayEntity]:
+                    self.log.info({'room': room, 'location': locationEntity, 'course': courseEntity})
+                    self.speak_dialog('course.x.takes.place.in.following.rooms', {'room': room, 'location': locationEntity})
+                    for time in courses[courseEntity][dayEntity][room]:
+                        self.log.info({'time': time, 'courseType': courses[courseEntity][dayEntity][room][time]['type'], 'courseEndTime': courses[courseEntity][dayEntity][room][time]['end']})
+                        self.speak_dialog('course.x.takes.place.in.room.y', {'time': time, 'course': courseEntity, 'courseType': courses[courseEntity][dayEntity][room][time]['type'], 'courseEndTime': courses[courseEntity][dayEntity][room][time]['end']})
+        else:
+            self.log.info("Query Failed line 383")
+            self.speak_dialog('no.courses.for.location.x', {'course': courseEntity, 'location': locationEntity})
+        
+        return 0
+
+        def stop(self):
+            pass
         
 def create_skill():
     return FhRoomOccupancySkill()

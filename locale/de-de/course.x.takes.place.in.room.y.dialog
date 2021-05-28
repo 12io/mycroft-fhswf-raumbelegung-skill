@@ -1,0 +1,3 @@
+um {time} uhr fängt {course} {courseType} an und geht bis {courseEndTime} uhr.
+{course} {courseType} findet von {time} uhr bis {courseEndTime} statt.
+{course} {courseType} beginnt um {time} uhr und endet um {courseEndTime} uhr.
