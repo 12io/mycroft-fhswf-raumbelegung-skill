@@ -1,4 +1,4 @@
-# <img src="https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/calendar-alt.svg" card_color="#39659F" width="50" height="50" style="vertical-align:bottom"/>Mycroft FHSWF Raumbelegung
+# <img src="https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/calendar-alt.svg" card_color="#39659F" width="50" height="50" style="vertical-align:bottom"/>Mycroft FH-SWF Raumbelegung
 Dieser Skill ist als Teil der Bachelorarbeit von [Silvio Marra](https://github.com/12io) entstanden und lässt Mycroft Fragen über die Raumbelegung des Plans aus dem [VPIS](https://vpis.fh-swf.de/) beantworten.
 
 ## Über den Skill
