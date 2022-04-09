@@ -5,16 +5,18 @@ from bs4 import BeautifulSoup
 from datetime import date
 from multi_key_dict import multi_key_dict
 from mycroft import MycroftSkill, intent_handler
-from os import listdir, mkdir
-from os.path import join
+from os import listdir, mkdir, remove
+from os.path import join, exists
 
 # change this variable to set a Skill name that does not sound strange in your used language:
-SKILL_NAME='FH SWF Raumbelegung'
+SKILL_NAME='FH-SWF Raumbelegung'
 
 VPIS_BASE_URL = 'https://vpis.fh-swf.de'
 VPIS_CONTROL_URL = VPIS_BASE_URL + '/vpisapp.php'
 # location = path after base url ;SEMESTER; is used here as a variable.
 VPIS_COURSES_URL_LOCATION = '/;SEMESTER;/faecherangebotplanung.php3'
+
+additionalRequestHeaders = {'User-Agent': 'Mycroft FhSwfRoomQuerySkill (https://github.com/fhswf/mycroft-fhswf-raumbelegung-skill) [2021, Silvio Marra]'}
 
 fhswfLocationMap = multi_key_dict()
 fhswfLocationMap['iserlohn', 'is', 'frauenstuhlweg','frauenstuhl weg', 'campus iserlohn'] = 'Iserlohn'
@@ -97,21 +99,21 @@ def getVPISActivities(location, semester = None, day = None):
     courses = 'Programmierung mit C++2': { '2021-04-12': { 'Is-H409': { '09:45': { 'type': 'Praktikum', 'end': '11:15' },
                                                                         '08:00': { 'type': 'Praktikum', 'end': '09:30' },
                                                                         '12:00': { 'type': 'Praktikum', 'end': '13:30' }
-                                                         }
-                                           },
-                                           '2021-04-19': { 'Is-H409': { '09:45': { 'type': 'Praktikum', 'end': '11:15' },
+                                                            }
+                                            },
+                                            '2021-04-19': { 'Is-H409': { '09:45': { 'type': 'Praktikum', 'end': '11:15' },
                                                                         '08:00': { 'type': 'Praktikum', 'end': '09:30' },
                                                                         '12:00': { 'type': 'Praktikum', 'end': '13:30' }
-                                                         }
-                                           },
-              'Projekt (Systemintegration)': { ... }
+                                                            }
+                                            },
+                'Projekt (Systemintegration)': { ... }
     }    
     """
     
     if not location in fhswfLocationMap:
         raise AttributeError('Invalid parameter: location')
 
-    vpisControlResponse = requests.get(VPIS_CONTROL_URL)
+    vpisControlResponse = requests.get(VPIS_CONTROL_URL,headers = additionalRequestHeaders)
         
     if not vpisControlResponse.status_code == 200:
         raise RuntimeError('Could not connect to VPIS: HTTP status code ' + str(vpisControlResponse.status_code))
@@ -127,7 +129,7 @@ def getVPISActivities(location, semester = None, day = None):
             url=locationChild.get('href')
             break
     
-    finalUrl = requests.get(url).url
+    finalUrl = requests.get(url, headers = additionalRequestHeaders).url
     
     if semester:
         finalUrl = re.sub('[WS]S[0-9]{4}', semester, finalUrl)
@@ -135,7 +137,7 @@ def getVPISActivities(location, semester = None, day = None):
     if day:
         finalUrl += '&Tag=' + day
 
-    vpisResponse = requests.get(finalUrl)
+    vpisResponse = requests.get(finalUrl, headers = additionalRequestHeaders)
     if not vpisResponse.status_code == 200:
         raise RuntimeError('Could not connect to VPIS: HTTP status code ' + str(vpisResponse.status_code))
     elif not re.search('application/xml', vpisResponse.headers['content-type']):
@@ -215,7 +217,7 @@ def getRoomsByLocation(url = VPIS_CONTROL_URL):
     }
     """
 
-    vpisControlResponse = requests.get(url)
+    vpisControlResponse = requests.get(url, headers = additionalRequestHeaders)
     if not vpisControlResponse.status_code == 200:
         raise RuntimeError("Connect to " + url + " failed. HTTP response code: " + vpisControlResponse.status_code)
     elif not re.search('application/xml', vpisControlResponse.headers['content-type']):
@@ -228,7 +230,7 @@ def getRoomsByLocation(url = VPIS_CONTROL_URL):
         # for fhswfLocation in fhswfLocationVpisShortKey.keys():
         if locationChild.text not in fhswfLocationMap.values():
             continue
-        vpisLocationResponse = requests.get(locationChild.get('href'))
+        vpisLocationResponse = requests.get(locationChild.get('href'), headers = additionalRequestHeaders)
         if not vpisLocationResponse.status_code == 200:
             raise RuntimeError("Could not fetch rooms for {}. HTTP response code: {}".format(locationChild.text, vpisLocationResponse.status_code))
         elif not re.search('application/xml', vpisLocationResponse.headers['content-type']):
@@ -278,7 +280,7 @@ def getCoursesByLocation():
         
         for urlLocation in urlLocations:
             url = VPIS_BASE_URL + urlLocation
-            site = requests.get(url, params = {'Fachbereich': locationKey, 'sort': 'fachname', 'Template': 'None'})
+            site = requests.get(url, params = {'Fachbereich': locationKey, 'sort': 'fachname', 'Template': 'None'}, headers = additionalRequestHeaders)
             if not site.status_code == 200:
                 continue
             
@@ -298,10 +300,28 @@ def getCoursesByLocation():
     return overallCoursesByLocation
 
 class FhSwfRoomQuerySkill(MycroftSkill):
+    """FhSwfRoomQuerySkill provides Mycroft with the ability to query for room occupancy within FH-SWF.
+
+    It utilizes the current API at vpis.fh-swf.de/vpisapp.php for the old VPISMobileApp. This API works
+    as a controlling site and stores as short url to any location's current day room occupancy in XML format.
+
+    From there we get the list of current activities and rooms store them as entity files inside the language
+    folders (eg. locale/de-de). From here we can now query for a room within a specific location to then generate
+    a dictionary per room and per study course.
+
+    """
+
     def __init__(self):
         super(FhSwfRoomQuerySkill, self).__init__(name=SKILL_NAME)
     
     def initialize(self):
+        """Additional skill setup after real Skill initializaion.
+        
+        1. Registers static entity files.
+        2. Fetches room and courses from current winters and summers semester.
+        3. Normalizes each string and writes them into entity files.
+
+        """
         self.register_entity_file('location.entity')
         self.register_entity_file('day.entity')
 
@@ -349,6 +369,7 @@ class FhSwfRoomQuerySkill(MycroftSkill):
     def tellMeAboutThisSkill(self, message):
         """Explains how to use this skill if the user asks about how to use it.
         """
+
         self.log.info(message.serialize())
         self.speak_dialog('you.can.ask.me.about.rooms.and.courses')
         
@@ -356,12 +377,13 @@ class FhSwfRoomQuerySkill(MycroftSkill):
     def handleHowDoIqueryForAroom(self, message):
         """Speaks an example query on how to query for a specific room.
         """
+
         self.log.info(message.serialize())
         self.speak_dialog('for.example.you.can.ask.me')
         self.speak_dialog('this.is.how.you.query.for.a.room')
     
     @intent_handler('how.do.i.query.for.a.course.intent')
-    def handleHowDoIqueryAroom(self, message):
+    def handleHowDoIqueryForACourse(self, message):
         """Speaks an example query on how to query for a specific course.
         """
         self.log.info(message.serialize())
@@ -375,6 +397,7 @@ class FhSwfRoomQuerySkill(MycroftSkill):
     def handleWhatDoesTakePlaceIn(self, message):
         """Handles the query for occupancy of a room.
         """
+
         self.log.info(message.serialize())
         roomEntity = message.data.get('room')
         locationEntity = message.data.get('location')
@@ -411,7 +434,7 @@ class FhSwfRoomQuerySkill(MycroftSkill):
             self.speak_dialog('following.courses.take.place.in.room.x', {'room': roomEntity})
             for courseTimeBegin in occupiedRooms[roomEntity][dayEntity]:
                 for courseName in occupiedRooms[roomEntity][dayEntity][courseTimeBegin]:
-                    self.speak_dialog('course.x.takes.place.in.room.y', {'time':courseTimeBegin, 'course': courseName, 'courseType': occupiedRooms[roomEntity][dayEntity][courseTimeBegin]['type'], 'courseEndTime':occupiedRooms[roomEntity][dayEntity][courseTimeBegin]['end']})
+                    self.speak_dialog('course.x.takes.place.in.room.y', {'time':courseTimeBegin, 'course': courseName, 'courseType': occupiedRooms[roomEntity][dayEntity][courseTimeBegin][courseName]['type'], 'courseEndTime':occupiedRooms[roomEntity][dayEntity][courseTimeBegin][courseName]['end']})
         else:
             self.log.info("Query Failed line 299")
             self.speak_dialog('room.not.found', {'room': roomEntity})
@@ -423,6 +446,7 @@ class FhSwfRoomQuerySkill(MycroftSkill):
     def handleWhereDoesCourseTakePlace(self, message):
         """Handles queries about where a course takes place.
         """
+
         self.log.info(message.serialize())
         courseEntity = message.data.get('course')
         locationEntity = message.data.get('location')
@@ -444,7 +468,6 @@ class FhSwfRoomQuerySkill(MycroftSkill):
             return 1
 
         if not occupiedRooms and not courses:
-            self.log.info("Query Failed line 367")
             self.speak_dialog('no.courses.for.location.x', {'course': courseEntity, 'location': locationEntity})
             return 1
         
@@ -461,20 +484,34 @@ class FhSwfRoomQuerySkill(MycroftSkill):
                         self.log.info({'time': time, 'courseType': courses[courseEntity][dayEntity][room][time]['type'], 'courseEndTime': courses[courseEntity][dayEntity][room][time]['end']})
                         self.speak_dialog('course.x.takes.place.in.room.y', {'time': time, 'course': courseEntity, 'courseType': courses[courseEntity][dayEntity][room][time]['type'], 'courseEndTime': courses[courseEntity][dayEntity][room][time]['end']})
         else:
-            self.log.info("Query Failed line 383")
             self.speak_dialog('no.courses.for.location.x', {'course': courseEntity, 'location': locationEntity})
         
         return 0
 
     # query for when a course takes place
     @intent_handler('when.does.course.x.take.place.intent')
-    """TODO implement functionality to answer a time.
-    Until implementation, speaks a sentence that it is not implemented yet.
-    """
     def handleWhenDoesCourseTakePlace(self, message):
+        """TODO implement functionality to answer a time.
+        Until implementation, speaks a sentence that it is not implemented yet.
+        """
         self.speak_dialog('not.implemented.yet')
+
+    def shutdown(self):
+
+ #       try:
+        for localeDir in listdir(join(self.root_dir, 'locale')):
+            roomEntityFile = join(self.root_dir, 'locale', localeDir, 'room.entity')
+            courseEntityFile = join(self.root_dir, 'locale', localeDir, 'course.entity')
+            if exists(roomEntityFile):
+                remove(roomEntityFile)
+
+            if exists(courseEntityFile):
+                remove(courseEntityFile)
+#       except Exception as e:
+#           self.log.error("Could not delete entity files.")
 
     def stop(self):
         pass
+
 def create_skill():
     return FhSwfRoomQuerySkill()
